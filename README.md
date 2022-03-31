@@ -1,6 +1,6 @@
 ## WEB Project
 
-project developed for the course SCC0219 - Introduction to Web Development (2022)
+Project developed for the course SCC0219 - Introduction to Web Development (2022)
 
 Members:
 
