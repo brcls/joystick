@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "commitizen": "^1.0.4",
+    "cz-conventional-changelog": "^3.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "scripts": {
+      "commit": "cz"
+    }
+  }
+}
