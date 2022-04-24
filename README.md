@@ -28,6 +28,9 @@ The system must be responsive and aims at good accessibility and usability for i
 
 Pleisteixu is an online store who sells digital games. Implemented with HTML, CSS, JavaScript, React (with styled components), MongoDB and Node.
 
+Navigation Diagram:
+![Diagrama](https://github.com/brcls/web-project/blob/main/mockup/Blank%20diagram%20(2).png)
+
 ## Functionalities
 
 The functionalities who will be presented in the website are:
@@ -76,4 +79,4 @@ Nothing for now.
 
 # 8 - Comments
 Nothing for now.
-[![Commitizen friendly]
+
