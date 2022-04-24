@@ -100,7 +100,7 @@ h1 {
   margin: 30px auto;
 }
 
-.out-button {
+.button {
   background: #0b0339;
   border: 1px solid #000000;
   box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
@@ -108,7 +108,7 @@ h1 {
 
   border-radius: 7px;
   width: 80%;
-  margin: 100px auto;
+  margin: 0px auto;
   font-weight: bold;
   color: white;
 }
@@ -247,4 +247,24 @@ p {
 .form .submit {
   margin: 5px auto;
   width: 70%;
+}
+
+.form p {
+  margin: 100px auto 15px;
+}
+.form .button {
+  margin: 100px auto;
+}
+
+#button-register {
+  background: #0b0339;
+  border: 1px solid #000000;
+  box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2.87425px);
+
+  border-radius: 7px;
+  width: 80%;
+  margin: 0px auto;
+  font-weight: bold;
+  color: white;
 }
