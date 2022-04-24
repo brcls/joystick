@@ -76,4 +76,4 @@ Nothing for now.
 
 # 8 - Comments
 Nothing for now.
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Commitizen friendly]
