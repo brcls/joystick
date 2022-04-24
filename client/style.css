@@ -4,12 +4,12 @@
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 .container {
   background-color: #272650;
   width: 100vw;
-  height: 100vh;
 }
 
 .header {
@@ -77,7 +77,6 @@ label {
 input {
   background: #0b0339;
   border: 1px solid #000000;
-  box-sizing: border-box;
   box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2.87425px);
 
@@ -109,14 +108,13 @@ h1 {
 
 .profile-form input {
   width: 80%;
-  margin: 10px auto;
+  margin: 5px auto;
   font-weight: bold;
 }
 
 #out-button {
   background: #0b0339;
   border: 1px solid #000000;
-  box-sizing: border-box;
   box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2.87425px);
 
@@ -125,4 +123,107 @@ h1 {
   margin: 200px auto 0;
   font-weight: bold;
   color: white;
+}
+
+.destaque {
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    180deg,
+    rgba(178, 173, 210, 0.29) 0%,
+    rgba(191, 182, 252, 0) 100%
+  );
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 50px;
+  display: flex;
+}
+
+.destaque img {
+  height: 100%;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.conteudo {
+  margin: 100px 10px;
+}
+
+.destaque button {
+  width: 50%;
+  background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
+  border-radius: 56px;
+}
+
+p {
+  color: white;
+}
+
+.generos {
+  display: flex;
+  width: 10px;
+}
+
+.categoria {
+  padding: 5px;
+  margin: 10px;
+  background: linear-gradient(
+    180deg,
+    #9a5bff 0%,
+    #62006f 137.99%,
+    #f800ee 138%
+  );
+  box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
+  border-radius: 40.2395px;
+}
+
+.list-games {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+#best-games {
+  margin: 50px 15px 0px;
+}
+
+.subtitle {
+  margin: 3px 15px 50px;
+  color: #747474;
+}
+
+.games-item {
+  min-width: 660px;
+  height: 360px;
+  margin: 10px auto;
+
+  background: linear-gradient(
+    180deg,
+    rgba(178, 173, 210, 0.29) 0%,
+    rgba(191, 182, 252, 0) 100%
+  );
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 50px;
+  display: flex;
+}
+
+.games-item img {
+  height: 100%;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+
+.games-item button {
+  width: 50%;
+  background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
+  border-radius: 56px;
 }
