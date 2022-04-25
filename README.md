@@ -80,3 +80,6 @@ Nothing for now.
 # 8 - Comments
 Nothing for now.
 
+# 9 - Figma
+Here is the link of the figma. 
+https://www.figma.com/file/4mHWq88bqFJFVKInC4gg2s/Projeto-WEB?node-id=0%3A1
