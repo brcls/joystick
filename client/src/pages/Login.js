@@ -14,9 +14,11 @@ export default function Login() {
       <Cabecalho />
       <StyledForm>
         <h1 class="title">Login</h1>
-        <StyledInput placeholder="E-mail" type="email" id="email" />
-        <StyledInput placeholder="Senha" type="password" id="password" />
-        <StyledButton type="submit">Login</StyledButton>
+        <StyledInput placeholder="E-mail" type="email" />
+        <StyledInput placeholder="Senha" type="password" />
+        <StyledLink to="/">
+          <StyledButton type="submit">Login</StyledButton>
+        </StyledLink>
         <p>Não possui cadastro?</p>
         <StyledLink to="/cadastro">
           <StyledButton>Cadastro</StyledButton>

@@ -198,22 +198,28 @@ export const StyledInput = styled.input`
   font-weight: 600;
   border-radius: 100px;
   margin: 7px auto;
+  transition: 0.5s;
+
+  &:hover {
+    background: #0b0360;
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
 `;
 
 export const StyledButton = styled.button`
   background: #0b0339;
-
-  font-size: 17px;
-  margin: 10px 2%;
-  padding: 0.6em 2em;
-  border: 0;
+  font-weight: 600;
+  margin: 10px auto;
+  height: 35px;
+  padding: 5px 0px 5px 15px;
   border-radius: 50px;
   box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
   width: 80%;
   transition: 0.5s;
 
   &:hover {
-    background: ;
+    background: #0b0360;
     transform: scale(1.05);
     transition: 0.5s;
   }
