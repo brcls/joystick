@@ -13,7 +13,7 @@ export default function Login() {
     <StyledContainer>
       <Cabecalho />
       <StyledForm>
-        <h1 class="title">Login</h1>
+        <h1>Login</h1>
         <StyledInput placeholder="E-mail" type="email" />
         <StyledInput placeholder="Senha" type="password" />
         <StyledLink to="/">

@@ -1,5 +1,10 @@
 import React from "react";
-import { StyledCabecalho, StyledLink, StyledSearch } from "../styles";
+import {
+  StyledCabecalho,
+  StyledLink,
+  StyledSearch,
+  StyledSubTitulo,
+} from "../styles";
 import ImgControle from "../assets/controle-de-video-game.png";
 import { FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
 
@@ -8,7 +13,9 @@ export default function Cabecalho() {
     <>
       <StyledCabecalho>
         <div>
-          <img src={ImgControle} alt="Logo" />
+          <StyledLink to="/">
+            <img src={ImgControle} alt="Logo" />
+          </StyledLink>
 
           <StyledSearch>
             <input type="text" placeholder="Buscar" name="search" />
@@ -16,17 +23,27 @@ export default function Cabecalho() {
               <FaSearch />
             </button>
           </StyledSearch>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/">Explorar</StyledLink>
-          <StyledLink to="/">Biblioteca</StyledLink>
+          <StyledLink to="/">
+            <StyledSubTitulo>Home</StyledSubTitulo>
+          </StyledLink>
+          <StyledLink to="/">
+            <StyledSubTitulo>Explorar</StyledSubTitulo>
+          </StyledLink>
+          <StyledLink to="/">
+            <StyledSubTitulo>Biblioteca</StyledSubTitulo>
+          </StyledLink>
         </div>
 
         <div>
-          <StyledLink to="/">
-            <FaShoppingCart />
+          <StyledLink to="/carrinho">
+            <StyledSubTitulo>
+              <FaShoppingCart />
+            </StyledSubTitulo>
           </StyledLink>
-          <StyledLink to="/">
-            <FaUser />
+          <StyledLink to="/perfil">
+            <StyledSubTitulo>
+              <FaUser />
+            </StyledSubTitulo>
           </StyledLink>
         </div>
       </StyledCabecalho>

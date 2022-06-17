@@ -4,6 +4,8 @@ import {
   StyledConteudo,
   StyledGeneros,
   StyledCategoria,
+  StyledLink,
+  StyledButton,
 } from "../styles";
 
 import Jogo from "../assets/jogo.jpeg";
@@ -25,7 +27,9 @@ export default function Destaques() {
           nórdicos. É nesse mundo duro e implacável que ele deve lutar para
           sobreviver... e ensinar seu filho a fazer o mesmo.
         </p>
-        <button>Comprar</button>
+        <StyledLink to="/login">
+          <StyledButton>Comprar</StyledButton>
+        </StyledLink>
       </StyledConteudo>
     </StyledDestaque>
   );

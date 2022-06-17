@@ -13,7 +13,7 @@ export default function Cadastro() {
     <StyledContainer>
       <Cabecalho />
       <StyledForm>
-        <h1 class="title">Cadastro</h1>
+        <h1>Cadastro</h1>
         <StyledInput placeholder="Nome" type="text" />
         <StyledInput placeholder="Username" type="text" />
         <StyledInput placeholder="E-mail" type="email" />

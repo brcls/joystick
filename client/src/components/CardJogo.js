@@ -4,6 +4,8 @@ import {
   StyledConteudo,
   StyledGeneros,
   StyledCategoria,
+  StyledLink,
+  StyledButton,
 } from "../styles";
 import ImgJogo from "../assets/jogo.jpeg";
 
@@ -18,7 +20,9 @@ export default function CardJogo() {
           <StyledCategoria> RPG</StyledCategoria>
           <StyledCategoria> Aventura</StyledCategoria>
         </StyledGeneros>
-        <button>Comprar</button>
+        <StyledLink to="/login">
+          <StyledButton>Comprar</StyledButton>
+        </StyledLink>
       </StyledConteudo>
     </StyledCardGame>
   );

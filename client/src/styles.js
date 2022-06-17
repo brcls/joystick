@@ -7,20 +7,31 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   text-decoration: none;
-  background-color: #272650;
   color: white;
   border: none;
+  background: none;
 }
 `;
 
-export const StyledContainer = styled.div`
-  width: 100%;
+export const StyledTitulo = styled.h1`
+  margin: ${(props) => (props.margem ? "50px 0px 10px 30px" : "10px")};
+`;
+
+export const StyledSubTitulo = styled.h3`
+  margin: ${(props) => (props.margem ? "10px 0px 10px 30px" : "10px")};
+  color: ${(props) => (props.cinza ? "#aaa" : "white")};
+`;
+
+export const StyledContainer = styled.body`
+  background-color: #272650;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   background: none;
-  margin: 10px;
 
   &:focus,
   &:hover,
@@ -71,18 +82,17 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledDestaque = styled.div`
-  width: 90%;
+  width: 85%;
   height: 500px;
   margin: 0 auto;
 
   background: linear-gradient(
     180deg,
     rgba(178, 173, 210, 0.29) 0%,
-    rgba(191, 182, 252, 0) 100%
+    rgba(191, 182, 252, 0.05) 100%
   );
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(4px);
-  /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 50px;
   display: flex;
@@ -94,7 +104,7 @@ export const StyledDestaque = styled.div`
   }
 
   button {
-    width: 50%;
+    width: 90%;
     background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
     border-radius: 56px;
@@ -107,16 +117,20 @@ export const StyledDestaque = styled.div`
 
 export const StyledConteudo = styled.div`
   margin: 100px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const StyledGeneros = styled.div`
   display: flex;
-  width: 10px;
 `;
 
 export const StyledCategoria = styled.div`
   padding: 5px;
   margin: 10px;
+  font-weight: 600;
+  font-size: small;
   background: linear-gradient(
     180deg,
     #9a5bff 0%,
@@ -128,18 +142,21 @@ export const StyledCategoria = styled.div`
 `;
 
 export const StyledCardGame = styled.div`
-  min-width: 660px;
-  height: 360px;
-  margin: 10px auto;
+  max-width: 100%;
+  min-width: 450px;
+  height: ${(props) => (props.baixo ? "200px" : "360px")};
+  margin: 20px;
+  flex: 1 1 450px;
+  background: #222;
+  position: relative;
 
   background: linear-gradient(
     180deg,
     rgba(178, 173, 210, 0.29) 0%,
-    rgba(191, 182, 252, 0) 100%
+    rgba(191, 182, 252, 0.05) 100%
   );
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(4px);
-  /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 50px;
   display: flex;
@@ -151,7 +168,7 @@ export const StyledCardGame = styled.div`
   }
 
   button {
-    width: 50%;
+    width: 100%;
     background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
     border-radius: 56px;
@@ -210,12 +227,12 @@ export const StyledInput = styled.input`
 export const StyledButton = styled.button`
   background: #0b0339;
   font-weight: 600;
-  margin: 10px auto;
+  margin: 20px;
   height: 35px;
   padding: 5px 0px 5px 15px;
   border-radius: 50px;
   box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
-  width: 80%;
+  min-width: 400px;
   transition: 0.5s;
 
   &:hover {
@@ -223,4 +240,31 @@ export const StyledButton = styled.button`
     transform: scale(1.05);
     transition: 0.5s;
   }
+`;
+
+export const StyledRoundButton = styled.button`
+  background: #0b0339;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
+  transition: 0.5s;
+  margin: 0px 45px 0px 5px;
+
+  &:hover {
+    background: #0b0360;
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
+`;
+
+export const StyledFlex = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+export const MarginVert = styled.div`
+  margin-top: 100px;
 `;

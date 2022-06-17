@@ -5,6 +5,8 @@ import {
   StyledContainer,
   StyledForm,
   StyledProfileImg,
+  StyledLink,
+  StyledButton,
 } from "../styles";
 import ImgPerfil from "../assets/perfil.jpg";
 
@@ -12,28 +14,19 @@ export default function Perfil() {
   return (
     <StyledContainer>
       <Cabecalho />
-      <h1 class="title">Perfil</h1>
-
       <StyledForm>
+        <h1>Perfil</h1>
         <StyledProfileImg src={ImgPerfil} alt="foto de perfil" />
-        <div>
-          <label for="name">Nome</label>
-          <StyledInput type="text" id="name" />
-        </div>
-        <div>
-          <label for="username">Username</label>
-          <StyledInput type="text" id="username" />
-        </div>
-        <div>
-          <label for="email">E-email</label>
-          <StyledInput type="email" id="email" />
-        </div>
-        <div>
-          <label for="password">Senha</label>
-          <StyledInput type="password" id="password" />
-        </div>
-        <StyledInput class="submit" type="button" value="Salvar" />
-        <button class="button">Sair</button>
+        <StyledInput placeholder="Nome" type="text" id="name" />
+        <StyledInput placeholder="Username" type="text" id="username" />
+        <StyledInput placeholder="E-mail" type="email" id="email" />
+        <StyledInput placeholder="Senha" type="password" id="password" />
+        <StyledLink to="/">
+          <StyledButton type="submit">Salvar</StyledButton>
+        </StyledLink>
+        <StyledLink to="/">
+          <StyledButton>Sair</StyledButton>
+        </StyledLink>
       </StyledForm>
     </StyledContainer>
   );
