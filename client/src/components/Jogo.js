@@ -1,21 +1,18 @@
 import React from "react";
 import {
-  StyledCardGame,
+  StyledJogo,
   StyledConteudo,
   StyledGeneros,
   StyledCategoria,
   StyledLink,
   StyledButton,
 } from "../styles";
+
 import ImgJogo from "../assets/jogo.jpeg";
 
-export default function CardJogo() {
-  function handleAbrirJogo() {
-    console.log("teste");
-  }
-
+export default function Jogo() {
   return (
-    <StyledCardGame onClick={handleAbrirJogo}>
+    <StyledJogo>
       <img src={ImgJogo} alt="jogo" />
       <StyledConteudo>
         <h1>God of war</h1>
@@ -24,16 +21,16 @@ export default function CardJogo() {
           <StyledCategoria> RPG</StyledCategoria>
           <StyledCategoria> Aventura</StyledCategoria>
         </StyledGeneros>
+        <p>
+          Com a vingança contra os deuses do Olimpo em um passado distante,
+          Kratos agora vive como um mortal no reino dos deuses e monstros
+          nórdicos. É nesse mundo duro e implacável que ele deve lutar para
+          sobreviver... e ensinar seu filho a fazer o mesmo.
+        </p>
         <StyledLink to="/login">
           <StyledButton noMargin>Comprar</StyledButton>
         </StyledLink>
       </StyledConteudo>
-      <p>
-        Com a vingança contra os deuses do Olimpo em um passado distante, Kratos
-        agora vive como um mortal no reino dos deuses e monstros nórdicos. É
-        nesse mundo duro e implacável que ele deve lutar para sobreviver... e
-        ensinar seu filho a fazer o mesmo.
-      </p>
-    </StyledCardGame>
+    </StyledJogo>
   );
 }

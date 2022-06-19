@@ -28,7 +28,7 @@ export default function Destaques() {
           sobreviver... e ensinar seu filho a fazer o mesmo.
         </p>
         <StyledLink to="/login">
-          <StyledButton>Comprar</StyledButton>
+          <StyledButton noMargin>Comprar</StyledButton>
         </StyledLink>
       </StyledConteudo>
     </StyledDestaque>

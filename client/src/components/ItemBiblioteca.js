@@ -4,19 +4,12 @@ import {
   StyledConteudo,
   StyledGeneros,
   StyledCategoria,
-  StyledTitulo,
+  StyledButton,
   StyledFlex,
-  StyledRoundButton,
 } from "../styles";
-import styled from "styled-components";
 import ImgJogo from "../assets/jogo.jpeg";
-import { GiCancel } from "react-icons/gi";
 
-const StyledButtonCart = styled(StyledRoundButton)`
-  margin-right: 50px;
-`;
-
-export default function ItemCarrinho() {
+export default function ItemBiblioteca() {
   return (
     <StyledFlex>
       <StyledCardGame baixo>
@@ -28,14 +21,15 @@ export default function ItemCarrinho() {
             <StyledCategoria> RPG</StyledCategoria>
             <StyledCategoria> Aventura</StyledCategoria>
           </StyledGeneros>
-          <StyledTitulo>R$ 230,00</StyledTitulo>
+          <StyledButton noMargin>Baixar</StyledButton>
         </StyledConteudo>
+        <p>
+          Com a vingança contra os deuses do Olimpo em um passado distante,
+          Kratos agora vive como um mortal no reino dos deuses e monstros
+          nórdicos. É nesse mundo duro e implacável que ele deve lutar para
+          sobreviver... e ensinar seu filho a fazer o mesmo.
+        </p>
       </StyledCardGame>
-      <StyledButtonCart>
-        <StyledTitulo>
-          <GiCancel />
-        </StyledTitulo>
-      </StyledButtonCart>
     </StyledFlex>
   );
 }

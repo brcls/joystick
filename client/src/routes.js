@@ -5,6 +5,9 @@ import Perfil from "./pages/Perfil";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Carrinho from "./pages/Carrinho";
+import Biblioteca from "./pages/Biblioteca";
+import Explorar from "./pages/Explorar";
+import Jogo from "./pages/DetalheJogo";
 
 function Rotas() {
   return (
@@ -15,6 +18,9 @@ function Rotas() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/biblioteca" element={<Biblioteca />} />
+        <Route path="/explorar" element={<Explorar />} />
+        <Route path="/jogo" element={<Jogo />} />
       </Routes>
     </Router>
   );

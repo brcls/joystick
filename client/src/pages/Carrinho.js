@@ -22,8 +22,8 @@ export default function Carrinho() {
       </StyledList>
       <StyledTitulo margem>Sub-total: R$ 690,00</StyledTitulo>
       <StyledFlex>
-        <StyledButton>Finalizar compra</StyledButton>
-        <StyledButton>Esvaziar carrinho</StyledButton>
+        <StyledButton pequeno>Finalizar compra</StyledButton>
+        <StyledButton pequeno>Esvaziar carrinho</StyledButton>
       </StyledFlex>
       <MarginVert></MarginVert>
     </StyledContainer>

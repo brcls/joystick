@@ -2,6 +2,7 @@ import React from "react";
 import {
   StyledCabecalho,
   StyledLink,
+  StyledRoundButton,
   StyledSearch,
   StyledSubTitulo,
 } from "../styles";
@@ -26,24 +27,24 @@ export default function Cabecalho() {
           <StyledLink to="/">
             <StyledSubTitulo>Home</StyledSubTitulo>
           </StyledLink>
-          <StyledLink to="/">
+          <StyledLink to="/explorar">
             <StyledSubTitulo>Explorar</StyledSubTitulo>
           </StyledLink>
-          <StyledLink to="/">
+          <StyledLink to="/biblioteca">
             <StyledSubTitulo>Biblioteca</StyledSubTitulo>
           </StyledLink>
         </div>
 
         <div>
           <StyledLink to="/carrinho">
-            <StyledSubTitulo>
+            <StyledRoundButton>
               <FaShoppingCart />
-            </StyledSubTitulo>
+            </StyledRoundButton>
           </StyledLink>
           <StyledLink to="/perfil">
-            <StyledSubTitulo>
+            <StyledRoundButton>
               <FaUser />
-            </StyledSubTitulo>
+            </StyledRoundButton>
           </StyledLink>
         </div>
       </StyledCabecalho>

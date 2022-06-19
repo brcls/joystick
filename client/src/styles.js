@@ -42,6 +42,21 @@ export const StyledLink = styled(Link)`
   }
 `;
 
+export const StyledCardLink = styled(Link)`
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
 export const StyledCabecalho = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -82,7 +97,7 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledDestaque = styled.div`
-  width: 85%;
+  width: 90%;
   height: 500px;
   margin: 0 auto;
 
@@ -91,8 +106,9 @@ export const StyledDestaque = styled.div`
     rgba(178, 173, 210, 0.29) 0%,
     rgba(191, 182, 252, 0.05) 100%
   );
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(4px);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
 
   border-radius: 50px;
   display: flex;
@@ -115,15 +131,60 @@ export const StyledDestaque = styled.div`
   }
 `;
 
+export const StyledJogo = styled.div`
+  width: 60%;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    180deg,
+    rgba(178, 173, 210, 0.29) 0%,
+    rgba(191, 182, 252, 0.05) 100%
+  );
+  filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(4px);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  img {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    max-height: 50%;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+  }
+
+  button {
+    width: 90%;
+    background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
+    border-radius: 56px;
+    margin: 10px auto 30px;
+  }
+
+  p {
+    color: white;
+    margin: 20px;
+  }
+  div {
+    margin: 10px auto;
+  }
+`;
+
 export const StyledConteudo = styled.div`
   margin: 100px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 export const StyledGeneros = styled.div`
   display: flex;
+  margin: 0px 0 20px;
 `;
 
 export const StyledCategoria = styled.div`
@@ -143,12 +204,12 @@ export const StyledCategoria = styled.div`
 
 export const StyledCardGame = styled.div`
   max-width: 100%;
-  min-width: 450px;
   height: ${(props) => (props.baixo ? "200px" : "360px")};
   margin: 20px;
-  flex: 1 1 450px;
+  flex: 1 1 600px;
   background: #222;
   position: relative;
+  align-items: center;
 
   background: linear-gradient(
     180deg,
@@ -157,6 +218,7 @@ export const StyledCardGame = styled.div`
   );
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(4px);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
 
   border-radius: 50px;
   display: flex;
@@ -172,6 +234,10 @@ export const StyledCardGame = styled.div`
     background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.125);
     border-radius: 56px;
+  }
+
+  p {
+    margin: 20px;
   }
 `;
 
@@ -227,12 +293,12 @@ export const StyledInput = styled.input`
 export const StyledButton = styled.button`
   background: #0b0339;
   font-weight: 600;
-  margin: 20px;
+  margin: ${(props) => (props.noMargin ? "0px" : "20px")};
   height: 35px;
   padding: 5px 0px 5px 15px;
   border-radius: 50px;
   box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
-  min-width: 400px;
+  min-width: ${(props) => (props.pequeno ? "300px" : "80%")};
   transition: 0.5s;
 
   &:hover {
@@ -249,7 +315,7 @@ export const StyledRoundButton = styled.button`
   border-radius: 100%;
   box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
   transition: 0.5s;
-  margin: 0px 45px 0px 5px;
+  margin: 0px 10px 0px 10px;
 
   &:hover {
     background: #0b0360;
