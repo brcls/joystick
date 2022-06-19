@@ -9,12 +9,24 @@ import {
 } from "../styles";
 
 import Jogo from "../assets/jogo.jpeg";
+import styled from "styled-components";
+
+const Image = styled.img`
+  object-fit: contain;
+  object-position: left;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+`;
+
+const StyledConteudo2 = styled(StyledConteudo)`
+  text-align: start;
+`;
 
 export default function Destaques() {
   return (
     <StyledDestaque>
-      <img src={Jogo} alt="jogo" />
-      <StyledConteudo>
+      <Image src={Jogo} alt="jogo" />
+      <StyledConteudo2>
         <h1>God of war</h1>
         <StyledGeneros>
           <StyledCategoria> Ação</StyledCategoria>
@@ -30,7 +42,7 @@ export default function Destaques() {
         <StyledLink to="/login">
           <StyledButton noMargin>Comprar</StyledButton>
         </StyledLink>
-      </StyledConteudo>
+      </StyledConteudo2>
     </StyledDestaque>
   );
 }

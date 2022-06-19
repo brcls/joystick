@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cabecalho from "../components/Cabecalho";
 import {
   StyledInput,
@@ -8,22 +8,80 @@ import {
   StyledLink,
   StyledButton,
 } from "../styles";
+import api from "../services/api";
+import { useNavigate } from "react-router-dom";
 import ImgPerfil from "../assets/perfil.jpg";
 
 export default function Perfil() {
+  const [id, setID] = useState();
+  const [nome, setNome] = useState();
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setID(localStorage.getItem("ID"));
+    setNome(localStorage.getItem("Nome"));
+    setUsername(localStorage.getItem("Username"));
+    setEmail(localStorage.getItem("Email"));
+    setSenha(localStorage.getItem("Senha"));
+  }, []);
+
+  function handleAtualizarUser(e) {
+    e.preventDefault();
+
+    const data = {
+      nome,
+      username,
+      email,
+      senha,
+    };
+
+    api
+      .put(`http://localhost:3000/usuarios/${id}`, data)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
+
   return (
     <StyledContainer>
       <Cabecalho />
-      <StyledForm>
+      <StyledForm onSubmit={handleAtualizarUser}>
         <h1>Perfil</h1>
         <StyledProfileImg src={ImgPerfil} alt="foto de perfil" />
-        <StyledInput placeholder="Nome" type="text" id="name" />
-        <StyledInput placeholder="Username" type="text" id="username" />
-        <StyledInput placeholder="E-mail" type="email" id="email" />
-        <StyledInput placeholder="Senha" type="password" id="password" />
-        <StyledLink to="/">
-          <StyledButton type="submit">Salvar</StyledButton>
-        </StyledLink>
+        <StyledInput
+          placeholder="Nome"
+          type="text"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+        />
+        <StyledInput
+          placeholder="Username"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <StyledInput
+          placeholder="E-mail"
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <StyledInput
+          placeholder="Senha"
+          type="password"
+          id="password"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+        />
+        <StyledButton type="submit">Salvar</StyledButton>
+
         <StyledLink to="/">
           <StyledButton>Sair</StyledButton>
         </StyledLink>

@@ -97,7 +97,7 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledDestaque = styled.div`
-  width: 90%;
+  max-width: 65%;
   height: 500px;
   margin: 0 auto;
 
@@ -113,12 +113,6 @@ export const StyledDestaque = styled.div`
   border-radius: 50px;
   display: flex;
 
-  img {
-    height: 100%;
-    border-bottom-left-radius: 50px;
-    border-top-left-radius: 50px;
-  }
-
   button {
     width: 90%;
     background: linear-gradient(180deg, #005eda 0%, #9100a9 138%);
@@ -132,7 +126,7 @@ export const StyledDestaque = styled.div`
 `;
 
 export const StyledJogo = styled.div`
-  width: 60%;
+  width: 40%;
   margin: 0 auto;
 
   background: linear-gradient(
@@ -153,7 +147,7 @@ export const StyledJogo = styled.div`
     position: relative;
     z-index: -1;
     width: 100%;
-    max-height: 50%;
+    max-height: 40%;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
   }
@@ -247,7 +241,7 @@ export const StyledList = styled.div`
   margin: 0 auto;
 `;
 
-export const StyledForm = styled.div`
+export const StyledForm = styled.form`
   margin: 0 auto;
   width: 50%;
   border-radius: 5px;
