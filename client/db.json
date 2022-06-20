@@ -1,42 +1,6 @@
 {
-  "cliente": [
-    {
-      "cnpj": "111111111111",
-      "nome": "Erick Barcelos",
-      "telefone": "91984211088",
-      "email": "petrick_barcelos@hotmail.com",
-      "id": 1
-    },
-    {
-      "cnpj": "3333333333",
-      "nome": "Ingrid Cardoso",
-      "telefone": "91984211088",
-      "email": "petrick_barcelos@hotmail.com",
-      "id": 2
-    }
-  ],
-  "video": [
-    {
-      "id": 5,
-      "titulo": "video pendente",
-      "briefing": "oiii",
-      "orcamento": "11111111111",
-      "entrega": "2023-02-25",
-      "status": "Concluído",
-      "idCliente": 2
-    },
-    {
-      "titulo": "dsgsd",
-      "briefing": "gdsgds",
-      "orcamento": "32332",
-      "entrega": "2022-04-07",
-      "idCliente": 1,
-      "status": "pendente",
-      "id": 6
-    }
-  ],
-  "gerente": {
-    "email": "teste@gmail.com",
-    "senha": "senhafacil"
-  }
+  "usuarios": [],
+  "jogosDaLoja": [],
+  "admins": [],
+  "token": { "token": "token123" }
 }
