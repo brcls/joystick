@@ -73,12 +73,12 @@ The results were very positive and fast, we had just a few problems with authent
 
 # 6 - Build Procedures
 To run this code, you need to have npm and node.js installed. You can also follow these steps:
-* 1 - Download these repository ('git clone repoURL')
-* 2 - Enter in the client folter ('cd client') 
-* 3 - Run 'npm install'
-* 4 - Run 'json-server —watch db.json'
-* 5 - Run 'npm start'
-* 6 - After running 'npm start', in the same terminal press "y" to change gate
+* 1 - Download these repository (`git clone repoURL`)
+* 2 - Enter in the client folter (`cd client`) 
+* 3 - Run `npm install`
+* 4 - Run `json-server —watch db.json`
+* 5 - Run `npm start`
+* 6 - After running `npm start`, in the same terminal press "y" to change gate
 
 # 7 - Problems
 We had some difficulty in the authentication part of the development, and also because of the short time to do the project.
