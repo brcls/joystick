@@ -63,22 +63,28 @@ The information stored on the server are:
 * Image's identifier
 
 # 3 - Comments About the Code
-Nothing for now.
+There are no many comments, just in some specific points like why we decided to use something or explaining the meaning of something. 
 
 # 4 - Test Plan
-We pretent to test the main funcionalities, like sign in, sign up and purhcase.
+We tested in different browsers like Microsoft Edge, Google Chrome and Mozilla Firefox, with different types of interactions.  
 
 # 5 - Test Results
-Nothing for now.
+The results were very positive and fast, we had just a few problems with authentication, but we  are working on it.  
 
 # 6 - Build Procedures
-In this first milestone, you just need to download the .zip from this repository and open the HTML pages.
+To run this code, you need to have npm and node.js installed. You can also follow these steps:
+* 1 - Download these repository ('git clone repoURL')
+* 2 - Enter in the client folter ('cd client') 
+* 3 - Run 'npm install'
+* 4 - Run 'json-server —watch db.json'
+* 5 - Run 'npm start'
+* 6 - After running 'npm start', in the same terminal press "y" to change gate
 
 # 7 - Problems
-Nothing for now.
+We had some difficulty in the authentication part of the development, and also because of the short time to do the project.
 
 # 8 - Comments
-Nothing for now.
+The project is not in his final version, so there are some unfinished things that we want to adjust and fix to the next milestone. The important point  is that we are learning with ours mistakes to build something better.
 
 # 9 - Figma
 Here is the link of the figma. 
