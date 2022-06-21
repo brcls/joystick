@@ -284,6 +284,29 @@ export const StyledInput = styled.input`
   }
 `;
 
+export const StyledTextarea = styled.textarea`
+  background: #0b0339;
+  box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2.87425px);
+  resize: none;
+  color: white;
+  height: 300px;
+  width: 80%;
+  padding: 15px 0px 5px 15px;
+  font-weight: 600;
+  border-radius: 20px;
+  margin: 7px auto;
+  transition: 0.5s;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+
+  &:hover {
+    background: #0b0360;
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
+`;
+
 export const StyledButton = styled.button`
   background: #0b0339;
   font-weight: 600;
@@ -327,4 +350,34 @@ export const StyledFlex = styled.div`
 
 export const MarginVert = styled.div`
   margin-top: 100px;
+`;
+
+export const StyledSelect = styled.select`
+  border-radius: 50px;
+  padding: 10px;
+  border: 0 none;
+  background: #eee;
+  box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
+  width: 80%;
+  margin: 10px 2%;
+  transition: 0.5s;
+  font-size: 15px;
+
+  &:hover {
+    background: #ddd;
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
+
+  option {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+
+  option:checked {
+    font-weight: bold;
+    color: #eee;
+    background: #555;
+  }
 `;

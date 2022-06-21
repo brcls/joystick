@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Perfil from "./pages/Perfil";
@@ -8,42 +8,12 @@ import Carrinho from "./pages/Carrinho";
 import Biblioteca from "./pages/Biblioteca";
 import Explorar from "./pages/Explorar";
 import Jogo from "./pages/DetalheJogo";
-import api from "./services/api";
+import CadastrarJogo from "./pages/CadastrarJogo";
+import ListaDeJogosAdmin from "./pages/ListaDeJogosAdmin";
+
+import RequireAuth from "./RequireAuth";
 
 function Rotas() {
-  const [token, setToken] = useState();
-  const [serverToken, setServerToken] = useState();
-
-  function authenticated() {
-    setToken(localStorage.getItem("Token"));
-
-    api
-      .get("http://localhost:3000/token")
-      .then(({ data }) => {
-        setServerToken(data);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-
-    console.log(serverToken);
-
-    if (serverToken.token === token) return true;
-    else return false;
-  }
-
-  function requireAuth(nextState, replace, next) {
-    console.log("oi");
-
-    if (!authenticated()) {
-      replace({
-        pathname: "/login",
-        state: { nextPathname: nextState.location.pathname },
-      });
-    }
-    next();
-  }
-
   return (
     <Router>
       <Routes>
@@ -52,12 +22,31 @@ function Rotas() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/explorar" element={<Explorar />} />
         <Route path="/jogo" element={<Jogo />} />
-        <Route path="/perfil" element={<Perfil />} onEnter={requireAuth} />
-        <Route path="/carrinho" element={<Carrinho />} onEnter={requireAuth} />
+        <Route path="/cadastrar-jogo" element={<CadastrarJogo />} />
+        <Route path="/lista-de-jogos" element={<ListaDeJogosAdmin />} />
         <Route
-          path="/biblioteca"
-          element={<Biblioteca />}
-          onEnter={requireAuth}
+          path="/perfil/:id"
+          element={
+            <RequireAuth>
+              <Perfil />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/carrinho"
+          element={
+            <RequireAuth>
+              <Carrinho />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/biblioteca/:id"
+          element={
+            <RequireAuth>
+              <Biblioteca />
+            </RequireAuth>
+          }
         />
       </Routes>
     </Router>

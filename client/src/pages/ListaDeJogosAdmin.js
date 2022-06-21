@@ -1,6 +1,6 @@
 import React from "react";
 import Cabecalho from "../components/Cabecalho";
-import ItemBiblioteca from "../components/ItemBiblioteca";
+import ItemCarrinho from "../components/ItemCarrinho";
 import {
   StyledTitulo,
   StyledList,
@@ -8,17 +8,15 @@ import {
   MarginVert,
 } from "../styles";
 
-export default function Biblioteca() {
+export default function ListaDeJogosAdmin() {
   return (
     <StyledContainer>
       <Cabecalho />
-      <StyledTitulo margem>Biblioteca</StyledTitulo>
+      <StyledTitulo margem>Jogos da loja</StyledTitulo>
       <StyledList>
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
+        <ItemCarrinho />
+        <ItemCarrinho />
+        <ItemCarrinho />
       </StyledList>
       <MarginVert></MarginVert>
     </StyledContainer>

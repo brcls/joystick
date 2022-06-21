@@ -25,8 +25,7 @@ export default function Cadastro() {
       username,
       email,
       senha,
-      idJogosUser: [],
-      cart: [],
+      idJogos: [],
     };
 
     api
@@ -45,24 +44,28 @@ export default function Cadastro() {
       <StyledForm onSubmit={handleNovoUsuario}>
         <h1>Cadastro</h1>
         <StyledInput
+          required
           placeholder="Nome"
           type="text"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
         />
         <StyledInput
+          required
           placeholder="Username"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <StyledInput
+          required
           placeholder="E-mail"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <StyledInput
+          required
           placeholder="Senha"
           type="password"
           value={senha}
