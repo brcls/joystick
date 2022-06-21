@@ -9,11 +9,11 @@ import {
   StyledButton,
 } from "../styles";
 import api from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ImgPerfil from "../assets/perfil.jpg";
 
 export default function Perfil() {
-  const [id, setID] = useState();
+  const { id } = useParams();
   const [nome, setNome] = useState();
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
@@ -21,11 +21,17 @@ export default function Perfil() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setID(localStorage.getItem("ID"));
-    setNome(localStorage.getItem("Nome"));
-    setUsername(localStorage.getItem("Username"));
-    setEmail(localStorage.getItem("Email"));
-    setSenha(localStorage.getItem("Senha"));
+    api
+      .get(`http://localhost:3000/usuarios/${id}`)
+      .then(({ data }) => {
+        setNome(data.nome);
+        setUsername(data.username);
+        setEmail(data.email);
+        setSenha(data.senha);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }, []);
 
   function handleAtualizarUser(e) {
@@ -46,6 +52,13 @@ export default function Perfil() {
       .catch((error) => {
         alert(error);
       });
+  }
+
+  function handleSair(e) {
+    e.preventDefault();
+
+    localStorage.removeItem("id");
+    navigate("/");
   }
 
   return (
@@ -75,16 +88,14 @@ export default function Perfil() {
         />
         <StyledInput
           placeholder="Senha"
-          type="password"
+          type="text"
           id="password"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
         <StyledButton type="submit">Salvar</StyledButton>
 
-        <StyledLink to="/">
-          <StyledButton>Sair</StyledButton>
-        </StyledLink>
+        <StyledButton onClick={handleSair}>Sair</StyledButton>
       </StyledForm>
     </StyledContainer>
   );

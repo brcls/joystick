@@ -1,6 +1,34 @@
 {
-  "usuarios": [],
-  "jogosDaLoja": [],
+  "usuarios": [
+    {
+      "nome": "erick",
+      "username": "brabo",
+      "email": "petrick_barcelos@hotmail.com",
+      "senha": "1234",
+      "id": 1
+    },
+    {
+      "nome": "erick",
+      "username": "teste",
+      "email": "petrick_barcelos@hotmail.com",
+      "senha": "1234",
+      "idJogos": [],
+      "id": 2
+    }
+  ],
+  "jogos": [
+    {
+      "nome": "jogo 1",
+      "descricao": "descricao x",
+      "preco": "10000",
+      "generos": "acao",
+      "destaque": false,
+      "melhores": false,
+      "id": 1
+    }
+  ],
   "admins": [],
-  "token": { "token": "token123" }
+  "token": {
+    "number": "token123"
+  }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cabecalho from "../components/Cabecalho";
 import CardJogo from "../components/CardJogo";
 import Destaques from "../components/Destaques";
@@ -10,7 +10,22 @@ import {
   StyledTitulo,
   StyledSubTitulo,
 } from "../styles";
+import api from "../services/api";
+
 export default function Home() {
+  const [jogos, setJogos] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("http://localhost:3000/jogos")
+      .then(({ data }) => {
+        setJogos(data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
+
   return (
     <StyledContainer>
       <Cabecalho />
@@ -25,10 +40,14 @@ export default function Home() {
         Explore os melhores projetos da plataforma
       </StyledSubTitulo>
       <StyledList>
-        <CardJogo />
-        <CardJogo />
-        <CardJogo />
-        <CardJogo />
+        {jogos.map((jogo) => (
+          <CardJogo
+            key={jogo.id}
+            nome={jogo.nome}
+            generos={jogo.generos}
+            descricao={jogo.descricao}
+          />
+        ))}
       </StyledList>
     </StyledContainer>
   );
