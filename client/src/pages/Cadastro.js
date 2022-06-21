@@ -26,6 +26,19 @@ export default function Cadastro() {
       email,
       senha,
       idJogos: [],
+      isAdmin: false,
+      cart: [
+        {
+          nome: "",
+          descricao: "",
+          preco: "",
+          genero: ["", "", ""],
+          destaque: "",
+          melhores: "",
+          isFree: "",
+          id: "",
+        },
+      ],
     };
 
     api

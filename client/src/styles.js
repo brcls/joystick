@@ -252,7 +252,11 @@ export const StyledForm = styled.form`
   }
 
   p {
-    margin: 100px auto 15px;
+    margin: 0px auto 15px;
+  }
+
+  label {
+    font-weight: 600;
   }
 `;
 
@@ -270,7 +274,7 @@ export const StyledInput = styled.input`
 
   color: white;
   height: 25px;
-  width: 80%;
+  width: 100%;
   padding: 5px 0px 5px 15px;
   font-weight: 600;
   border-radius: 100px;
@@ -291,7 +295,7 @@ export const StyledTextarea = styled.textarea`
   resize: none;
   color: white;
   height: 300px;
-  width: 80%;
+  width: 100%;
   padding: 15px 0px 5px 15px;
   font-weight: 600;
   border-radius: 20px;
@@ -353,31 +357,34 @@ export const MarginVert = styled.div`
 `;
 
 export const StyledSelect = styled.select`
-  border-radius: 50px;
-  padding: 10px;
-  border: 0 none;
-  background: #eee;
-  box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.3);
-  width: 80%;
-  margin: 10px 2%;
+  background: #0b0339;
+  box-shadow: 0px 2.87425px 2.87425px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2.87425px);
+
+  color: white;
+  height: 25px;
+  width: 100%;
+  padding: 15px;
+  font-weight: 600;
+  border-radius: 100px;
+  margin: 7px auto;
   transition: 0.5s;
-  font-size: 15px;
 
   &:hover {
-    background: #ddd;
+    background: #aaa;
     transform: scale(1.05);
     transition: 0.5s;
   }
 
   option {
     text-align: center;
-    color: black;
+    color: white;
     font-weight: bold;
   }
 
   option:checked {
     font-weight: bold;
     color: #eee;
-    background: #555;
+    background: #0b0390;
   }
 `;

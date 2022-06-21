@@ -10,6 +10,7 @@ import {
 
 import Jogo from "../assets/jogo.jpeg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Image = styled.img`
   object-fit: contain;
@@ -22,26 +23,25 @@ const StyledConteudo2 = styled(StyledConteudo)`
   text-align: start;
 `;
 
-export default function Destaques() {
+export default function Destaques(props) {
+  const navigate = useNavigate();
+
+  function handleAbrirJogo() {
+    navigate(`/detalhe-jogo/${props.id}`);
+  }
+
   return (
-    <StyledDestaque>
+    <StyledDestaque onClick={handleAbrirJogo}>
       <Image src={Jogo} alt="jogo" />
       <StyledConteudo2>
-        <h1>God of war</h1>
+        <h1>{props.nome}</h1>
         <StyledGeneros>
-          <StyledCategoria> Ação</StyledCategoria>
-          <StyledCategoria> RPG</StyledCategoria>
-          <StyledCategoria> Aventura</StyledCategoria>
+          <StyledCategoria> {props.generos[0]}</StyledCategoria>
+          <StyledCategoria> {props.generos[1]}</StyledCategoria>
+          <StyledCategoria> {props.generos[2]}</StyledCategoria>
         </StyledGeneros>
-        <p>
-          Com a vingança contra os deuses do Olimpo em um passado distante,
-          Kratos agora vive como um mortal no reino dos deuses e monstros
-          nórdicos. É nesse mundo duro e implacável que ele deve lutar para
-          sobreviver... e ensinar seu filho a fazer o mesmo.
-        </p>
-        <StyledLink to="/login">
-          <StyledButton noMargin>Comprar</StyledButton>
-        </StyledLink>
+        <p>{props.descricao} </p>
+        <StyledButton noMargin>Comprar</StyledButton>
       </StyledConteudo2>
     </StyledDestaque>
   );
