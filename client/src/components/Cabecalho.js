@@ -38,7 +38,7 @@ export default function Cabecalho() {
         </div>
 
         <div>
-          <StyledLink to="/carrinho">
+          <StyledLink to={`/carrinho/${usuarioId}`}>
             <StyledRoundButton>
               <FaShoppingCart />
             </StyledRoundButton>

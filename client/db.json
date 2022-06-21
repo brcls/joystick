@@ -5,34 +5,71 @@
       "username": "brabo",
       "email": "petrick_barcelos@hotmail.com",
       "senha": "1234",
-      "id": 1
-    },
-    {
-      "nome": "erick",
-      "username": "teste",
-      "email": "petrick_barcelos@hotmail.com",
-      "senha": "12345",
+      "idJogos": [],
+      "isAdmin": false,
+      "cart": [
+        {
+          "nome": "jogo 1",
+          "descricao": "const [genero, setGenero] = useState();",
+          "preco": "21542523135",
+          "genero": ["Ação", "Aventura", "Puzzle"],
+          "destaque": "true",
+          "melhores": "false",
+          "isFree": "true"
+        },
+        {
+          "nome": "jogo 1",
+          "descricao": "const [genero, setGenero] = useState();",
+          "preco": "21542523135",
+          "genero": ["Ação", "Aventura", "Puzzle"],
+          "destaque": "true",
+          "melhores": "false",
+          "isFree": "true"
+        }
+      ],
       "id": 2
     }
   ],
   "jogos": [
     {
       "nome": "jogo 1",
-      "descricao": "Com a vingança contra os deuses do Olimpo em um passado distante, Kratos agora vive como um mortal no reino dos deuses e monstros nórdicos. É nesse mundo duro e implacável que ele deve lutar para sobreviver... e ensinar seu filho a fazer o mesmo. ",
-      "preco": "10000",
-      "generos": "acao",
-      "destaque": false,
-      "melhores": false,
+      "descricao": "const [genero, setGenero] = useState();",
+      "preco": "21542523135",
+      "genero": ["Ação", "Aventura", "Puzzle"],
+      "destaque": "true",
+      "melhores": "false",
+      "isFree": "true",
+      "id": 5
+    }
+  ],
+  "generos": [
+    {
+      "genero": "Ação",
       "id": 1
     },
     {
-      "nome": "jogo 3",
-      "descricao": "descricao y",
-      "preco": "10000",
-      "generos": "acao",
-      "destaque": false,
-      "melhores": false,
+      "genero": "Aventura",
       "id": 2
+    },
+    {
+      "genero": "RPG",
+      "id": 3
+    },
+    {
+      "genero": "Simulação",
+      "id": 4
+    },
+    {
+      "genero": "Puzzle",
+      "id": 5
+    },
+    {
+      "genero": "Esportes",
+      "id": 6
+    },
+    {
+      "genero": "Estratégia",
+      "id": 7
     }
   ]
 }

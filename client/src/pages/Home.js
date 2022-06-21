@@ -30,9 +30,17 @@ export default function Home() {
     <StyledContainer>
       <Cabecalho />
       <Carousel infiniteLoop autoPlay showThumbs={false}>
-        <Destaques />
-        <Destaques />
-        <Destaques />
+        {jogos
+          .filter((jogo) => jogo.destaque === "true")
+          .map((jogo) => (
+            <Destaques
+              key={jogo.id}
+              id={jogo.id}
+              nome={jogo.nome}
+              generos={jogo.genero}
+              descricao={jogo.descricao}
+            />
+          ))}
       </Carousel>
 
       <StyledTitulo margem>Melhores Jogos</StyledTitulo>
@@ -45,7 +53,7 @@ export default function Home() {
             key={jogo.id}
             id={jogo.id}
             nome={jogo.nome}
-            generos={jogo.generos}
+            generos={jogo.genero}
             descricao={jogo.descricao}
           />
         ))}

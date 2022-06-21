@@ -11,7 +11,10 @@ export default function DetalheJogo() {
   const [nome, setNome] = useState();
   const [descricao, setDescricao] = useState();
   const [preco, setPreco] = useState();
-  const [generos, setGeneros] = useState();
+  const [genero, setGenero] = useState([]);
+  const [destaque, setDestaque] = useState();
+  const [melhores, setMelhores] = useState();
+  const [isFree, setIsFree] = useState();
 
   useEffect(() => {
     api
@@ -20,7 +23,10 @@ export default function DetalheJogo() {
         setNome(data.nome);
         setDescricao(data.descricao);
         setPreco(data.preco);
-        setGeneros(data.generos);
+        setGenero(data.genero);
+        setDestaque(data.destaque);
+        setMelhores(data.melhores);
+        setIsFree(data.isFree);
       })
       .catch((error) => {
         alert(error);
@@ -30,7 +36,15 @@ export default function DetalheJogo() {
   return (
     <StyledContainer>
       <Cabecalho />
-      <Jogo nome={nome} descricao={descricao} preco={preco} generos={generos} />
+      <Jogo
+        nome={nome}
+        descricao={descricao}
+        preco={preco}
+        genero={genero}
+        destaque={destaque}
+        melhores={melhores}
+        isFree={isFree}
+      />
       <MarginVert></MarginVert>
     </StyledContainer>
   );

@@ -16,19 +16,19 @@ const StyledButtonCart = styled(StyledRoundButton)`
   margin-right: 50px;
 `;
 
-export default function ItemCarrinho() {
+export default function ItemCarrinho(props) {
   return (
     <StyledFlex>
       <StyledCardGame baixo>
         <img src={ImgJogo} alt="jogo" />
         <StyledConteudo>
-          <h1>God of war</h1>
+          <h1>{props.nome}</h1>
           <StyledGeneros>
-            <StyledCategoria> Ação</StyledCategoria>
-            <StyledCategoria> RPG</StyledCategoria>
-            <StyledCategoria> Aventura</StyledCategoria>
+            <StyledCategoria> {props.genero[0]}</StyledCategoria>
+            <StyledCategoria>{props.genero[1]}</StyledCategoria>
+            <StyledCategoria> {props.genero[2]}</StyledCategoria>
           </StyledGeneros>
-          <StyledTitulo>R$ 230,00</StyledTitulo>
+          <StyledTitulo>{props.preco}</StyledTitulo>
         </StyledConteudo>
       </StyledCardGame>
       <StyledButtonCart>

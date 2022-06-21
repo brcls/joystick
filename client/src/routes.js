@@ -33,7 +33,7 @@ function Rotas() {
           }
         />
         <Route
-          path="/carrinho"
+          path="/carrinho/:id"
           element={
             <RequireAuth>
               <Carrinho />
