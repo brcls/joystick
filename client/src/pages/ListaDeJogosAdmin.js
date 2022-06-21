@@ -13,11 +13,7 @@ export default function ListaDeJogosAdmin() {
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Jogos da loja</StyledTitulo>
-      <StyledList>
-        <ItemCarrinho />
-        <ItemCarrinho />
-        <ItemCarrinho />
-      </StyledList>
+      <StyledList></StyledList>
       <MarginVert></MarginVert>
     </StyledContainer>
   );

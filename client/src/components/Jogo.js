@@ -39,7 +39,7 @@ export default function Jogo(props) {
       isAdmin: false,
       cart: [
         ...user.cart,
-        {
+        ...{
           nome: props.nome,
           descricao: props.descricao,
           preco: props.preco,

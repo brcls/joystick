@@ -9,22 +9,18 @@
       "isAdmin": false,
       "cart": [
         {
-          "nome": "jogo 1",
-          "descricao": "const [genero, setGenero] = useState();",
-          "preco": "21542523135",
-          "genero": ["Ação", "Aventura", "Puzzle"],
-          "destaque": "true",
-          "melhores": "false",
-          "isFree": "true"
-        },
-        {
-          "nome": "jogo 1",
-          "descricao": "const [genero, setGenero] = useState();",
-          "preco": "21542523135",
-          "genero": ["Ação", "Aventura", "Puzzle"],
-          "destaque": "true",
-          "melhores": "false",
-          "isFree": "true"
+          "nome": "",
+          "descricao": "",
+          "preco": "",
+          "genero": [
+            "",
+            "",
+            ""
+          ],
+          "destaque": "",
+          "melhores": "",
+          "isFree": "",
+          "id": ""
         }
       ],
       "id": 2
@@ -35,11 +31,61 @@
       "nome": "jogo 1",
       "descricao": "const [genero, setGenero] = useState();",
       "preco": "21542523135",
-      "genero": ["Ação", "Aventura", "Puzzle"],
+      "genero": [
+        "Ação",
+        "Aventura",
+        "Puzzle"
+      ],
       "destaque": "true",
       "melhores": "false",
       "isFree": "true",
+      "novidade": "true",
       "id": 5
+    },
+    {
+      "nome": "jogo 1",
+      "descricao": "const [genero, setGenero] = useState();",
+      "preco": "21542523135",
+      "genero": [
+        "Ação",
+        "Aventura",
+        "Puzzle"
+      ],
+      "destaque": "true",
+      "melhores": "false",
+      "isFree": "true",
+      "novidade": "true",
+      "id": 1
+    },
+    {
+      "nome": "jogo 1",
+      "descricao": "const [genero, setGenero] = useState();",
+      "preco": "21542523135",
+      "genero": [
+        "Ação",
+        "Aventura",
+        "Puzzle"
+      ],
+      "destaque": "true",
+      "melhores": "false",
+      "isFree": "true",
+      "novidade": "true",
+      "id": 2
+    },
+    {
+      "nome": "jogo 1",
+      "descricao": "const [genero, setGenero] = useState();",
+      "preco": "21542523135",
+      "genero": [
+        "Ação",
+        "Aventura",
+        "Puzzle"
+      ],
+      "destaque": "true",
+      "melhores": "false",
+      "isFree": "false",
+      "novidade": "false",
+      "id": 3
     }
   ],
   "generos": [
