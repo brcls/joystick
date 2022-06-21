@@ -45,7 +45,7 @@ export default function Perfil() {
     };
 
     api
-      .put(`http://localhost:3000/usuarios/${id}`, data)
+      .patch(`http://localhost:3000/usuarios/${id}`, data)
       .then(() => {
         navigate("/");
       })

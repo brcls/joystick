@@ -14,7 +14,7 @@ import api from "../services/api";
 
 export default function Carrinho() {
   const { id } = useParams();
-  const [carrinho, setCarrinho] = useState([]);
+  const [carrinho, setCarrinho] = useState([{}]);
 
   useEffect(() => {
     api
@@ -27,11 +27,23 @@ export default function Carrinho() {
       });
   }, []);
 
-  function isEmpty(carrinho) {
+  function isEmpty() {
     if (Object.keys(carrinho).length === 0) {
-      return true;
+      console.log(carrinho);
+      return <StyledTitulo margem>Carrinho vazio</StyledTitulo>;
     }
-    return false;
+
+    console.log(carrinho);
+    return carrinho?.map((jogo) => (
+      <ItemCarrinho
+        key={jogo.id}
+        id={jogo.id}
+        nome={jogo.nome}
+        genero={jogo.genero}
+        descricao={jogo.descricao}
+        preco={jogo.preco}
+      />
+    ));
   }
 
   function calcularSubTotal() {}
@@ -40,22 +52,7 @@ export default function Carrinho() {
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Carrinho</StyledTitulo>
-      <StyledList>
-        {isEmpty(carrinho) ? (
-          carrinho.map((jogo) => (
-            <ItemCarrinho
-              key={jogo.id}
-              id={jogo.id}
-              nome={jogo.nome}
-              genero={jogo.genero}
-              descricao={jogo.descricao}
-              preco={jogo.preco}
-            />
-          ))
-        ) : (
-          <StyledTitulo margem>Carrinho vazio</StyledTitulo>
-        )}
-      </StyledList>
+      <StyledList>{isEmpty()}</StyledList>
       <StyledTitulo margem>Sub-total: R$ 690,00</StyledTitulo>
       <StyledFlex>
         <StyledButton pequeno>Finalizar compra</StyledButton>

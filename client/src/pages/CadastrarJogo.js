@@ -21,6 +21,7 @@ export default function CadastrarJogo() {
   const [genero3, setGenero3] = useState();
   const [destaque, setDestaque] = useState();
   const [melhores, setMelhores] = useState();
+  const [novidade, setNovidade] = useState();
   const [isFree, setIsFree] = useState();
   const [generos, setGeneros] = useState();
 
@@ -48,6 +49,7 @@ export default function CadastrarJogo() {
       destaque,
       melhores,
       isFree,
+      novidade,
     };
 
     api
@@ -147,6 +149,15 @@ export default function CadastrarJogo() {
           required
           value={isFree}
           onChange={(e) => setIsFree(e.target.value)}
+        >
+          <option></option>
+          <option value={true}>Sim</option>
+          <option value={false}>Não</option>
+        </StyledSelect>
+        <StyledSelect
+          required
+          value={novidade}
+          onChange={(e) => setNovidade(e.target.value)}
         >
           <option></option>
           <option value={true}>Sim</option>

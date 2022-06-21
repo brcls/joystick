@@ -47,6 +47,7 @@ export default function Jogo(props) {
           destaque: props.destaque,
           melhores: props.melhores,
           isFree: props.isFree,
+          id: props.id,
         },
       ],
     };

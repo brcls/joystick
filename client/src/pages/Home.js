@@ -4,6 +4,8 @@ import CardJogo from "../components/CardJogo";
 import Destaques from "../components/Destaques";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Background from "../assets/lastofus.jpg";
+
 import {
   StyledList,
   StyledContainer,
@@ -11,6 +13,18 @@ import {
   StyledSubTitulo,
 } from "../styles";
 import api from "../services/api";
+import styled from "styled-components";
+
+const StyledContainer2 = styled(StyledContainer)`
+  background-image: linear-gradient(
+      to bottom,
+      rgba(245, 246, 252, 0.2),
+      rgba(39, 38, 80, 2),
+      rgba(39, 38, 80, 2)
+    ),
+    url(${Background});
+  background-repeat: no-repeat;
+`;
 
 export default function Home() {
   const [jogos, setJogos] = useState([]);
@@ -27,7 +41,7 @@ export default function Home() {
   }, []);
 
   return (
-    <StyledContainer>
+    <StyledContainer2>
       <Cabecalho />
       <Carousel infiniteLoop autoPlay showThumbs={false}>
         {jogos
@@ -58,6 +72,6 @@ export default function Home() {
           />
         ))}
       </StyledList>
-    </StyledContainer>
+    </StyledContainer2>
   );
 }

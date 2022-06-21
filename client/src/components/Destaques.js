@@ -31,7 +31,7 @@ export default function Destaques(props) {
   }
 
   return (
-    <StyledDestaque onClick={handleAbrirJogo}>
+    <StyledDestaque>
       <Image src={Jogo} alt="jogo" />
       <StyledConteudo2>
         <h1>{props.nome}</h1>
@@ -41,7 +41,9 @@ export default function Destaques(props) {
           <StyledCategoria> {props.generos[2]}</StyledCategoria>
         </StyledGeneros>
         <p>{props.descricao} </p>
-        <StyledButton noMargin>Comprar</StyledButton>
+        <StyledButton noMargin onClick={handleAbrirJogo}>
+          Comprar
+        </StyledButton>
       </StyledConteudo2>
     </StyledDestaque>
   );
