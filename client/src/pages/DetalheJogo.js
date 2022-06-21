@@ -44,6 +44,7 @@ export default function DetalheJogo() {
         destaque={destaque}
         melhores={melhores}
         isFree={isFree}
+        id={idJogo}
       />
       <MarginVert></MarginVert>
     </StyledContainer>

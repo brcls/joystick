@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemCarrinho from "../components/ItemCarrinho";
 import {
@@ -15,7 +15,6 @@ import api from "../services/api";
 export default function Carrinho() {
   const { id } = useParams();
   const [carrinho, setCarrinho] = useState([{}]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     api
@@ -30,10 +29,12 @@ export default function Carrinho() {
 
   function isEmpty() {
     if (Object.keys(carrinho).length === 0) {
+      console.log(carrinho);
       return <StyledTitulo margem>Carrinho vazio</StyledTitulo>;
     }
 
-    return carrinho.map((jogo) => (
+    console.log(carrinho);
+    return carrinho?.map((jogo) => (
       <ItemCarrinho
         key={jogo.id}
         id={jogo.id}
@@ -47,44 +48,14 @@ export default function Carrinho() {
 
   function calcularSubTotal() {}
 
-  function handleFinalizar() {}
-
-  function handleEsvaziar() {
-    setCarrinho([{}]);
-
-    const data = {
-      cart: [
-        {
-          nome: "",
-          descricao: "",
-          preco: "",
-          genero: ["", "", ""],
-          destaque: "",
-          melhores: "",
-          isFree: "",
-          id: "",
-        },
-      ],
-    };
-
-    api
-      .patch(`http://localhost:3000/usuarios/${id}`, data)
-      .then(() => {})
-      .catch((error) => {
-        alert(error);
-      });
-  }
-
   return (
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Carrinho</StyledTitulo>
-      <StyledList>{isEmpty(carrinho)}</StyledList>
+      <StyledList>{isEmpty()}</StyledList>
       <StyledTitulo margem>Sub-total: R$ 690,00</StyledTitulo>
       <StyledFlex>
-        <StyledButton pequeno onClick={handleEsvaziar}>
-          Finalizar compra
-        </StyledButton>
+        <StyledButton pequeno>Finalizar compra</StyledButton>
         <StyledButton pequeno>Esvaziar carrinho</StyledButton>
       </StyledFlex>
       <MarginVert></MarginVert>

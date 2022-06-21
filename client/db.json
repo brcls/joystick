@@ -9,18 +9,46 @@
       "isAdmin": false,
       "cart": [
         {
-          "nome": "",
-          "descricao": "",
-          "preco": "",
+          "nome": "jogo 1",
+          "descricao": "const [genero, setGenero] = useState();",
+          "preco": "21542523135",
           "genero": [
-            "",
-            "",
-            ""
+            "Ação",
+            "Aventura",
+            "Puzzle"
           ],
-          "destaque": "",
-          "melhores": "",
-          "isFree": "",
-          "id": ""
+          "destaque": "true",
+          "melhores": "false",
+          "isFree": "true",
+          "id": "5"
+        },
+        {
+          "nome": "jogo 1",
+          "descricao": "const [genero, setGenero] = useState();",
+          "preco": "21542523135",
+          "genero": [
+            "Ação",
+            "Aventura",
+            "Puzzle"
+          ],
+          "destaque": "true",
+          "melhores": "false",
+          "isFree": "true",
+          "id": "2"
+        },
+        {
+          "nome": "jogo 1",
+          "descricao": "const [genero, setGenero] = useState();",
+          "preco": "21542523135",
+          "genero": [
+            "Ação",
+            "Aventura",
+            "Puzzle"
+          ],
+          "destaque": "true",
+          "melhores": "false",
+          "isFree": "false",
+          "id": "3"
         }
       ],
       "id": 2
