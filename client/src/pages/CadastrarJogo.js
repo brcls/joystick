@@ -15,6 +15,10 @@ export default function CadastrarJogo() {
   const [descricao, setDescricao] = useState();
   const [preco, setPreco] = useState();
   const [generos, setGeneros] = useState();
+  const [destaque, setDestaque] = useState();
+  const [melhores, setMelhores] = useState();
+  const [isFree, setIsFree] = useState();
+
   const navigate = useNavigate();
 
   function handleNovoJogo(e) {
@@ -25,8 +29,9 @@ export default function CadastrarJogo() {
       descricao,
       preco,
       generos,
-      destaque: false,
-      melhores: false,
+      destaque,
+      melhores,
+      isFree,
     };
 
     api

@@ -33,7 +33,7 @@ export default function Login() {
     const usuario = usuarios.find((user) => user.username === username);
 
     if (usuario && senha === usuario.senha) {
-      localStorage.setItem("id", usuario.id);
+      sessionStorage.setItem("id", usuario.id);
       navigate("/");
     } else {
       alert("Senha ou username incorretos! Digite de novo.");

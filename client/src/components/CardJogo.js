@@ -8,10 +8,13 @@ import {
   StyledButton,
 } from "../styles";
 import ImgJogo from "../assets/jogo.jpeg";
+import { useNavigate } from "react-router-dom";
 
 export default function CardJogo(props) {
+  const navigate = useNavigate();
+
   function handleAbrirJogo() {
-    console.log("teste");
+    navigate(`/detalhe-jogo/${props.id}`);
   }
 
   return (
@@ -24,9 +27,7 @@ export default function CardJogo(props) {
           <StyledCategoria> RPG</StyledCategoria>
           <StyledCategoria> Aventura</StyledCategoria>
         </StyledGeneros>
-        <StyledLink to="/login">
-          <StyledButton noMargin>Comprar</StyledButton>
-        </StyledLink>
+        <StyledButton noMargin>Comprar</StyledButton>
       </StyledConteudo>
       <p>{props.descricao}</p>
     </StyledCardGame>

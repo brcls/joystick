@@ -43,6 +43,7 @@ export default function Home() {
         {jogos.map((jogo) => (
           <CardJogo
             key={jogo.id}
+            id={jogo.id}
             nome={jogo.nome}
             generos={jogo.generos}
             descricao={jogo.descricao}

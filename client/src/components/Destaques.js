@@ -39,7 +39,7 @@ export default function Destaques() {
           nórdicos. É nesse mundo duro e implacável que ele deve lutar para
           sobreviver... e ensinar seu filho a fazer o mesmo.
         </p>
-        <StyledLink to="/login">
+        <StyledLink to="/carrinho">
           <StyledButton noMargin>Comprar</StyledButton>
         </StyledLink>
       </StyledConteudo2>

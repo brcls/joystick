@@ -14,7 +14,7 @@ export default function Carrinho() {
   return (
     <StyledContainer>
       <Cabecalho />
-      <StyledTitulo margem>Melhores Jogos</StyledTitulo>
+      <StyledTitulo margem>Carrinho</StyledTitulo>
       <StyledList>
         <ItemCarrinho />
         <ItemCarrinho />

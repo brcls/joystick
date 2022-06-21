@@ -57,7 +57,7 @@ export default function Perfil() {
   function handleSair(e) {
     e.preventDefault();
 
-    localStorage.removeItem("id");
+    sessionStorage.removeItem("id");
     navigate("/");
   }
 

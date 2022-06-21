@@ -10,7 +10,7 @@ import ImgControle from "../assets/controle-de-video-game.png";
 import { FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
 
 export default function Cabecalho() {
-  const usuarioId = localStorage.getItem("id");
+  const usuarioId = sessionStorage.getItem("id");
 
   return (
     <>

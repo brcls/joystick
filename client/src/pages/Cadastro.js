@@ -26,6 +26,7 @@ export default function Cadastro() {
       email,
       senha,
       idJogos: [],
+      isAdmin: false,
     };
 
     api

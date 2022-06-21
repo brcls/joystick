@@ -11,24 +11,28 @@
       "nome": "erick",
       "username": "teste",
       "email": "petrick_barcelos@hotmail.com",
-      "senha": "1234",
-      "idJogos": [],
+      "senha": "12345",
       "id": 2
     }
   ],
   "jogos": [
     {
       "nome": "jogo 1",
-      "descricao": "descricao x",
+      "descricao": "Com a vingança contra os deuses do Olimpo em um passado distante, Kratos agora vive como um mortal no reino dos deuses e monstros nórdicos. É nesse mundo duro e implacável que ele deve lutar para sobreviver... e ensinar seu filho a fazer o mesmo. ",
       "preco": "10000",
       "generos": "acao",
       "destaque": false,
       "melhores": false,
       "id": 1
+    },
+    {
+      "nome": "jogo 3",
+      "descricao": "descricao y",
+      "preco": "10000",
+      "generos": "acao",
+      "destaque": false,
+      "melhores": false,
+      "id": 2
     }
-  ],
-  "admins": [],
-  "token": {
-    "number": "token123"
-  }
+  ]
 }

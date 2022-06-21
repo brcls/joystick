@@ -7,7 +7,7 @@ import Cadastro from "./pages/Cadastro";
 import Carrinho from "./pages/Carrinho";
 import Biblioteca from "./pages/Biblioteca";
 import Explorar from "./pages/Explorar";
-import Jogo from "./pages/DetalheJogo";
+import DetalheJogo from "./pages/DetalheJogo";
 import CadastrarJogo from "./pages/CadastrarJogo";
 import ListaDeJogosAdmin from "./pages/ListaDeJogosAdmin";
 
@@ -21,7 +21,7 @@ function Rotas() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/explorar" element={<Explorar />} />
-        <Route path="/jogo" element={<Jogo />} />
+        <Route path="/detalhe-jogo/:idJogo" element={<DetalheJogo />} />
         <Route path="/cadastrar-jogo" element={<CadastrarJogo />} />
         <Route path="/lista-de-jogos" element={<ListaDeJogosAdmin />} />
         <Route
