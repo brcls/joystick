@@ -5,7 +5,6 @@ import {
   StyledContainer,
   StyledForm,
   StyledProfileImg,
-  StyledLink,
   StyledButton,
 } from "../styles";
 import api from "../services/api";

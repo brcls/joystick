@@ -9,7 +9,7 @@ import {
 } from "../styles";
 import ImgJogo from "../assets/jogo.jpeg";
 
-export default function ItemBiblioteca({}) {
+export default function ItemBiblioteca() {
   return (
     <StyledFlex>
       <StyledCardGame baixo>

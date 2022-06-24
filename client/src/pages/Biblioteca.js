@@ -32,10 +32,6 @@ export default function Biblioteca() {
       <StyledTitulo margem>Biblioteca</StyledTitulo>
       <StyledList>
         <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
       </StyledList>
       <MarginVert></MarginVert>
     </StyledContainer>

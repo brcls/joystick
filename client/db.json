@@ -2,63 +2,26 @@
   "usuarios": [
     {
       "nome": "erick",
-      "username": "brabo",
+      "username": "erick",
       "email": "petrick_barcelos@hotmail.com",
-      "senha": "1234",
-      "idJogos": [],
-      "isAdmin": false,
-      "cart": [
-        {
-          "nome": "jogo 1",
-          "descricao": "const [genero, setGenero] = useState();",
-          "preco": "21542523135",
-          "genero": [
-            "Ação",
-            "Aventura",
-            "Puzzle"
-          ],
-          "destaque": "true",
-          "melhores": "false",
-          "isFree": "true",
-          "id": "5"
-        },
-        {
-          "nome": "jogo 1",
-          "descricao": "const [genero, setGenero] = useState();",
-          "preco": "21542523135",
-          "genero": [
-            "Ação",
-            "Aventura",
-            "Puzzle"
-          ],
-          "destaque": "true",
-          "melhores": "false",
-          "isFree": "true",
-          "id": "2"
-        },
-        {
-          "nome": "jogo 1",
-          "descricao": "const [genero, setGenero] = useState();",
-          "preco": "21542523135",
-          "genero": [
-            "Ação",
-            "Aventura",
-            "Puzzle"
-          ],
-          "destaque": "true",
-          "melhores": "false",
-          "isFree": "false",
-          "id": "3"
-        }
+      "senha": "12345",
+      "idJogos": [
+        "5",
+        "1",
+        "2",
+        "5",
+        "5",
+        "5"
       ],
-      "id": 2
+      "isAdmin": false,
+      "id": 1
     }
   ],
   "jogos": [
     {
       "nome": "jogo 1",
       "descricao": "const [genero, setGenero] = useState();",
-      "preco": "21542523135",
+      "preco": 25,
       "genero": [
         "Ação",
         "Aventura",
@@ -71,9 +34,9 @@
       "id": 5
     },
     {
-      "nome": "jogo 1",
+      "nome": "jogo 2",
       "descricao": "const [genero, setGenero] = useState();",
-      "preco": "21542523135",
+      "preco": 25,
       "genero": [
         "Ação",
         "Aventura",
@@ -86,9 +49,9 @@
       "id": 1
     },
     {
-      "nome": "jogo 1",
+      "nome": "jogo 3",
       "descricao": "const [genero, setGenero] = useState();",
-      "preco": "21542523135",
+      "preco": 21,
       "genero": [
         "Ação",
         "Aventura",
@@ -101,9 +64,9 @@
       "id": 2
     },
     {
-      "nome": "jogo 1",
+      "nome": "jogo 4",
       "descricao": "const [genero, setGenero] = useState();",
-      "preco": "21542523135",
+      "preco": 21542523135,
       "genero": [
         "Ação",
         "Aventura",

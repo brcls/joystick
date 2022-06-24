@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Cabecalho from "../components/Cabecalho";
 import CardJogo from "../components/CardJogo";
 import Destaques from "../components/Destaques";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import Background from "../assets/lastofus.jpg";
 
 import {
@@ -43,19 +41,18 @@ export default function Home() {
   return (
     <StyledContainer2>
       <Cabecalho />
-      <Carousel infiniteLoop autoPlay showThumbs={false}>
-        {jogos
-          .filter((jogo) => jogo.destaque === "true")
-          .map((jogo) => (
-            <Destaques
-              key={jogo.id}
-              id={jogo.id}
-              nome={jogo.nome}
-              generos={jogo.genero}
-              descricao={jogo.descricao}
-            />
-          ))}
-      </Carousel>
+
+      {jogos
+        .filter((jogo) => jogo.destaque === "true")
+        .map((jogo) => (
+          <Destaques
+            key={jogo.id}
+            id={jogo.id}
+            nome={jogo.nome}
+            genero={jogo.genero}
+            descricao={jogo.descricao}
+          />
+        ))}
 
       <StyledTitulo margem>Melhores Jogos</StyledTitulo>
       <StyledSubTitulo cinza margem>

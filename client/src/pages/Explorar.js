@@ -3,7 +3,6 @@ import Cabecalho from "../components/Cabecalho";
 import CardJogo from "../components/CardJogo";
 import Destaques from "../components/Destaques";
 import Background from "../assets/Cyberpunk-Multiplayer.png.webp";
-import { Carousel } from "react-responsive-carousel";
 import {
   StyledList,
   StyledContainer,
@@ -42,19 +41,17 @@ export default function Explorar() {
   return (
     <StyledContainer2>
       <Cabecalho />
-      <Carousel infiniteLoop autoPlay showThumbs={false}>
-        {jogos
-          .filter((jogo) => jogo.destaque === "true")
-          .map((jogo) => (
-            <Destaques
-              key={jogo.id}
-              id={jogo.id}
-              nome={jogo.nome}
-              generos={jogo.genero}
-              descricao={jogo.descricao}
-            />
-          ))}
-      </Carousel>
+      {jogos
+        .filter((jogo) => jogo.destaque === "true")
+        .map((jogo) => (
+          <Destaques
+            key={jogo.id}
+            id={jogo.id}
+            nome={jogo.nome}
+            generos={jogo.genero}
+            descricao={jogo.descricao}
+          />
+        ))}
       <StyledFlex>
         <div>
           <StyledTitulo margem>Jogos em alta</StyledTitulo>
@@ -74,33 +71,29 @@ export default function Explorar() {
         </div>
         <div>
           <StyledTitulo margem>Novidades</StyledTitulo>
-          <Carousel>
-            {jogos
-              .filter((jogo) => jogo.novidade === "true")
-              .map((jogo) => (
-                <CardJogo
-                  key={jogo.id}
-                  id={jogo.id}
-                  nome={jogo.nome}
-                  generos={jogo.genero}
-                  descricao={jogo.descricao}
-                />
-              ))}
-          </Carousel>
+          {jogos
+            .filter((jogo) => jogo.novidade === "true")
+            .map((jogo) => (
+              <CardJogo
+                key={jogo.id}
+                id={jogo.id}
+                nome={jogo.nome}
+                generos={jogo.genero}
+                descricao={jogo.descricao}
+              />
+            ))}
           <StyledTitulo margem>Jogos grátis</StyledTitulo>
-          <Carousel>
-            {jogos
-              .filter((jogo) => jogo.isFree === "true")
-              .map((jogo) => (
-                <CardJogo
-                  key={jogo.id}
-                  id={jogo.id}
-                  nome={jogo.nome}
-                  generos={jogo.genero}
-                  descricao={jogo.descricao}
-                />
-              ))}
-          </Carousel>
+          {jogos
+            .filter((jogo) => jogo.isFree === "true")
+            .map((jogo) => (
+              <CardJogo
+                key={jogo.id}
+                id={jogo.id}
+                nome={jogo.nome}
+                generos={jogo.genero}
+                descricao={jogo.descricao}
+              />
+            ))}
         </div>
       </StyledFlex>
     </StyledContainer2>
