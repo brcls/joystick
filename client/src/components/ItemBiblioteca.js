@@ -18,13 +18,13 @@ export default function ItemBiblioteca(props) {
           <h1>{props.nome}</h1>
           <StyledGeneros>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : "teste"}
+              {props.genero ? props.genero[0] : ""}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : "teste"}
+              {props.genero ? props.genero[1] : ""}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : "teste"}
+              {props.genero ? props.genero[2] : ""}
             </StyledCategoria>
           </StyledGeneros>
           <StyledButton noMargin>Baixar</StyledButton>

@@ -18,7 +18,7 @@ export default function Jogo(props) {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(carrinho));
-  }, []);
+  }, [carrinho]);
 
   function handleComprarJogo(e) {
     e.preventDefault();

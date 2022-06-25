@@ -56,7 +56,7 @@ export default function Biblioteca() {
             key={jogo.id}
             id={jogo.id}
             nome={jogo.nome}
-            generos={jogo.genero}
+            genero={jogo.genero}
             preco={jogo.preco}
             descricao={jogo.descricao}
           />

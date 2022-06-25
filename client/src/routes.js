@@ -13,6 +13,9 @@ import ListaDeJogosAdmin from "./pages/ListaDeJogosAdmin";
 
 import RequireAuth from "./RequireAuth";
 
+//  Para acessar as paginas de admin, digite a url
+// (http://localhost:3001/lista-de-jogos) e (http://localhost:3001/cadastrar-jogo)
+
 function Rotas() {
   return (
     <Router>

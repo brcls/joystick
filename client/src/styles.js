@@ -97,7 +97,7 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledDestaque = styled.div`
-  max-width: 65%;
+  max-width: 80%;
   height: 500px;
   margin: 0 auto;
 
@@ -197,7 +197,8 @@ export const StyledCategoria = styled.div`
 `;
 
 export const StyledCardGame = styled.div`
-  max-width: 90%;
+  max-width: 100%;
+  width: 600px;
   height: ${(props) => (props.baixo ? "200px" : "360px")};
   margin: 20px;
   flex: 1 1 600px;
@@ -347,7 +348,6 @@ export const StyledRoundButton = styled.button`
 
 export const StyledFlex = styled.div`
   display: flex;
-  align-items: center;
   width: 100%;
   justify-content: space-between;
 `;
