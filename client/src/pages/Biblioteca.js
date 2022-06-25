@@ -12,8 +12,9 @@ import api from "../services/api";
 
 export default function Biblioteca() {
   const { id } = useParams();
-
-  const [usuario, setUsuario] = useState([]);
+  const [biblioteca, setBiblioteca] = useState([]);
+  const [jogos, setJogos] = useState([]);
+  const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
     api
@@ -24,18 +25,42 @@ export default function Biblioteca() {
       .catch((error) => {
         alert(error);
       });
-  }, []);
+
+    api
+      .get("http://localhost:3000/jogos")
+      .then(({ data }) => {
+        setJogos(data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+    if (usuario.idJogos) {
+      for (var i = 0; i < usuario.idJogos.length; i++) {
+        const auxiliar = jogos.find((jogo) => jogo.id === usuario.idJogos[i]);
+
+        if (auxiliar && !biblioteca.find((item) => item.id === auxiliar.id)) {
+          setBiblioteca([...biblioteca, { ...auxiliar }]);
+        }
+      }
+    }
+  }, [usuario]);
 
   return (
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Biblioteca</StyledTitulo>
       <StyledList>
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
-        <ItemBiblioteca />
+        {biblioteca.map((jogo) => (
+          <ItemBiblioteca
+            key={jogo.id}
+            id={jogo.id}
+            nome={jogo.nome}
+            generos={jogo.genero}
+            preco={jogo.preco}
+            descricao={jogo.descricao}
+          />
+        ))}
       </StyledList>
       <MarginVert></MarginVert>
     </StyledContainer>

@@ -44,7 +44,7 @@ export default function CadastrarJogo() {
     const data = {
       nome,
       descricao,
-      preco,
+      preco: parseInt(preco, 10),
       genero: [genero, genero2, genero3],
       destaque,
       melhores,
@@ -94,7 +94,7 @@ export default function CadastrarJogo() {
           onChange={(e) => setGenero(e.target.value)}
         >
           <option></option>
-          {generos?.map((genero) => (
+          {generos.map((genero) => (
             <option value={genero.genero} key={genero.id}>
               {genero.genero}
             </option>
@@ -106,7 +106,7 @@ export default function CadastrarJogo() {
           onChange={(e) => setGenero2(e.target.value)}
         >
           <option></option>
-          {generos?.map((genero) => (
+          {generos.map((genero) => (
             <option value={genero.genero} key={genero.id}>
               {genero.genero}
             </option>
@@ -118,7 +118,7 @@ export default function CadastrarJogo() {
           onChange={(e) => setGenero3(e.target.value)}
         >
           <option></option>
-          {generos?.map((genero) => (
+          {generos.map((genero) => (
             <option value={genero.genero} key={genero.id}>
               {genero.genero}
             </option>

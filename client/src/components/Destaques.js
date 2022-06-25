@@ -4,7 +4,6 @@ import {
   StyledConteudo,
   StyledGeneros,
   StyledCategoria,
-  StyledLink,
   StyledButton,
 } from "../styles";
 
@@ -36,9 +35,9 @@ export default function Destaques(props) {
       <StyledConteudo2>
         <h1>{props.nome}</h1>
         <StyledGeneros>
-          <StyledCategoria> {props.generos[0]}</StyledCategoria>
-          <StyledCategoria> {props.generos[1]}</StyledCategoria>
-          <StyledCategoria> {props.generos[2]}</StyledCategoria>
+          <StyledCategoria> {props.genero[0]}</StyledCategoria>
+          <StyledCategoria> {props.genero[1]}</StyledCategoria>
+          <StyledCategoria> {props.genero[2]}</StyledCategoria>
         </StyledGeneros>
         <p>{props.descricao} </p>
         <StyledButton noMargin onClick={handleAbrirJogo}>
