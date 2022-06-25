@@ -38,7 +38,6 @@ export default function CardJogo(props) {
           Comprar
         </StyledButton>
       </StyledConteudo>
-      <p>{props.descricao}</p>
     </StyledCardGame>
   );
 }

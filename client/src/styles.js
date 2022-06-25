@@ -197,8 +197,8 @@ export const StyledCategoria = styled.div`
 `;
 
 export const StyledCardGame = styled.div`
-  max-width: 90%;
-  min-width: 600px;
+  max-width: 100%;
+  width: 600px;
   height: ${(props) => (props.baixo ? "200px" : "360px")};
   margin: 20px;
   flex: 1 1 600px;
