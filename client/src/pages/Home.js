@@ -12,6 +12,7 @@ import {
 } from "../styles";
 import api from "../services/api";
 import styled from "styled-components";
+import { Carousel } from "react-bootstrap";
 
 const StyledContainer2 = styled(StyledContainer)`
   background-image: linear-gradient(
@@ -41,18 +42,20 @@ export default function Home() {
   return (
     <StyledContainer2>
       <Cabecalho />
-
-      {jogos
-        .filter((jogo) => jogo.destaque === "true")
-        .map((jogo) => (
-          <Destaques
-            key={jogo.id}
-            id={jogo.id}
-            nome={jogo.nome}
-            genero={jogo.genero}
-            descricao={jogo.descricao}
-          />
-        ))}
+      <Carousel>
+        {jogos
+          .filter((jogo) => jogo.destaque === "true")
+          .map((jogo) => (
+            <Carousel.Item key={jogo.id}>
+              <Destaques
+                id={jogo.id}
+                nome={jogo.nome}
+                genero={jogo.genero}
+                descricao={jogo.descricao}
+              />
+            </Carousel.Item>
+          ))}
+      </Carousel>
 
       <StyledTitulo margem>Melhores Jogos</StyledTitulo>
       <StyledSubTitulo cinza margem>

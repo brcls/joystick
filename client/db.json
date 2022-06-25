@@ -5,14 +5,7 @@
       "username": "erick",
       "email": "petrick_barcelos@hotmail.com",
       "senha": "12345",
-      "idJogos": [
-        "5",
-        "1",
-        "2",
-        "5",
-        "5",
-        "5"
-      ],
+      "idJogos": [],
       "isAdmin": false,
       "id": 1
     }
@@ -22,11 +15,7 @@
       "nome": "jogo 1",
       "descricao": "const [genero, setGenero] = useState();",
       "preco": 25,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "Puzzle"
-      ],
+      "genero": ["Ação", "Aventura", "Puzzle"],
       "destaque": "true",
       "melhores": "false",
       "isFree": "true",
@@ -37,11 +26,7 @@
       "nome": "jogo 2",
       "descricao": "const [genero, setGenero] = useState();",
       "preco": 25,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "Puzzle"
-      ],
+      "genero": ["Ação", "Aventura", "Puzzle"],
       "destaque": "true",
       "melhores": "false",
       "isFree": "true",
@@ -52,11 +37,7 @@
       "nome": "jogo 3",
       "descricao": "const [genero, setGenero] = useState();",
       "preco": 21,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "Puzzle"
-      ],
+      "genero": ["Ação", "Aventura", "Puzzle"],
       "destaque": "true",
       "melhores": "false",
       "isFree": "true",
@@ -67,11 +48,7 @@
       "nome": "jogo 4",
       "descricao": "const [genero, setGenero] = useState();",
       "preco": 21542523135,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "Puzzle"
-      ],
+      "genero": ["Ação", "Aventura", "Puzzle"],
       "destaque": "true",
       "melhores": "false",
       "isFree": "false",

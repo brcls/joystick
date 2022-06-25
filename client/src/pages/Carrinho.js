@@ -51,7 +51,6 @@ export default function Carrinho() {
     api
       .patch(`http://localhost:3000/usuarios/${id}`, data)
       .then(() => {
-        console.log("entro");
         navigate("/");
       })
       .catch((error) => {

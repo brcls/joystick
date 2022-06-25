@@ -42,10 +42,10 @@ export default function ItemCarrinho(props) {
               {props.genero ? props.genero[0] : "teste"}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : "teste"}
+              {props.genero ? props.genero[1] : "teste"}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : "teste"}
+              {props.genero ? props.genero[2] : "teste"}
             </StyledCategoria>
           </StyledGeneros>
           <StyledTitulo>{props.preco}</StyledTitulo>
