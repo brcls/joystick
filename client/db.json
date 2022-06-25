@@ -5,9 +5,18 @@
       "username": "erick",
       "email": "petrick_barcelos@hotmail.com",
       "senha": "12345",
-      "idJogos": [],
+      "idJogos": [5],
       "isAdmin": false,
       "id": 1
+    },
+    {
+      "nome": "novo",
+      "username": "eu",
+      "email": "petrick_barcelos@hotmail.com",
+      "senha": "123",
+      "idJogos": [5, 1],
+      "isAdmin": false,
+      "id": 2
     }
   ],
   "jogos": [
@@ -23,37 +32,15 @@
       "id": 5
     },
     {
-      "nome": "jogo 2",
-      "descricao": "const [genero, setGenero] = useState();",
-      "preco": 25,
-      "genero": ["Ação", "Aventura", "Puzzle"],
+      "nome": "jogo bom",
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tellus lorem. Proin mollis felis eget metus convallis interdum. Cras gravida purus sed egestas porttitor. Ut tincidunt erat a condimentum volutpat. Ut a ante ac libero blandit vestibulum. Aenean a malesuada enim, in pellentesque augue. In nibh felis",
+      "preco": 12,
+      "genero": ["Ação", "Aventura", "RPG"],
       "destaque": "true",
-      "melhores": "false",
+      "melhores": "true",
       "isFree": "true",
       "novidade": "true",
-      "id": 1
-    },
-    {
-      "nome": "jogo 3",
-      "descricao": "const [genero, setGenero] = useState();",
-      "preco": 21,
-      "genero": ["Ação", "Aventura", "Puzzle"],
-      "destaque": "true",
-      "melhores": "false",
-      "isFree": "true",
-      "novidade": "true",
-      "id": 2
-    },
-    {
-      "nome": "jogo 4",
-      "descricao": "const [genero, setGenero] = useState();",
-      "preco": 21542523135,
-      "genero": ["Ação", "Aventura", "Puzzle"],
-      "destaque": "true",
-      "melhores": "false",
-      "isFree": "false",
-      "novidade": "false",
-      "id": 3
+      "id": 6
     }
   ],
   "generos": [
