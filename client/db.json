@@ -4,9 +4,11 @@
       "nome": "erick",
       "username": "erick",
       "email": "petrick_barcelos@hotmail.com",
-      "senha": "12345",
+      "senha": "senha",
       "idJogos": [
-        5
+        6,
+        5,
+        7
       ],
       "isAdmin": false,
       "id": 1
@@ -26,36 +28,6 @@
   ],
   "jogos": [
     {
-      "nome": "jogo 1",
-      "descricao": "const [genero, setGenero] = useState();",
-      "preco": 25,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "Puzzle"
-      ],
-      "destaque": "true",
-      "melhores": "false",
-      "isFree": "true",
-      "novidade": "true",
-      "id": 5
-    },
-    {
-      "nome": "jogo bom",
-      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tellus lorem. Proin mollis felis eget metus convallis interdum. Cras gravida purus sed egestas porttitor. Ut tincidunt erat a condimentum volutpat. Ut a ante ac libero blandit vestibulum. Aenean a malesuada enim, in pellentesque augue. In nibh felis",
-      "preco": 12,
-      "genero": [
-        "Ação",
-        "Aventura",
-        "RPG"
-      ],
-      "destaque": "true",
-      "melhores": "true",
-      "isFree": "true",
-      "novidade": "true",
-      "id": 6
-    },
-    {
       "nome": "joogao",
       "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tellus lorem. Proin mollis felis eget metus convallis interdum. Cras gravida purus sed egestas porttitor. Ut tincidunt erat a condimentum volutpat. Ut a ante ac libero blandit vestibulum. Aenean a malesuada enim, in pellentesque augue. In nibh felis, pellentesque non elit a, vehicula vehicula massa",
       "preco": 121,
@@ -69,6 +41,21 @@
       "isFree": "true",
       "novidade": "true",
       "id": 7
+    },
+    {
+      "nome": "jogo dahora",
+      "descricao": "la la ala laa la adladkaf as fas f asf sa g",
+      "preco": 1000000,
+      "genero": [
+        "Simulação",
+        "Puzzle",
+        "Esportes"
+      ],
+      "destaque": "true",
+      "melhores": "true",
+      "isFree": "false",
+      "novidade": "true",
+      "id": 8
     }
   ],
   "generos": [
