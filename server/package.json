@@ -1,12 +1,27 @@
 {
-  "name": "server",
+  "name": "node-str",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "azure-storage": "^2.1.0",
+    "body-parser": "^1.17.2",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "guid": "0.0.12",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
+    "mongoose": "^6.4.4",
+    "sendgrid": "^5.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
