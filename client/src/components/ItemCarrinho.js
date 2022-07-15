@@ -32,7 +32,7 @@ export default function ItemCarrinho(props) {
   function handleRemoveItem(e) {
     e.preventDefault();
 
-    setCarrinho(carrinho.filter((item) => item.id !== props.id));
+    setCarrinho(carrinho.filter((item) => item._id !== props._id));
     localStorage.setItem("cart", JSON.stringify(carrinho));
   }
 

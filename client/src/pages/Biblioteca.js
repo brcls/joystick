@@ -37,9 +37,9 @@ export default function Biblioteca() {
 
     if (usuario.games) {
       for (var i = 0; i < usuario.games.length; i++) {
-        const auxiliar = jogos.find((jogo) => jogo.id === usuario.games[i]);
+        const auxiliar = jogos.find((jogo) => jogo._id === usuario.games[i]);
 
-        if (auxiliar && !biblioteca.find((item) => item.id === auxiliar.id)) {
+        if (auxiliar && !biblioteca.find((item) => item._id === auxiliar._id)) {
           setBiblioteca([...biblioteca, { ...auxiliar }]);
         }
       }
@@ -53,8 +53,8 @@ export default function Biblioteca() {
       <StyledList>
         {biblioteca.map((jogo) => (
           <ItemBiblioteca
-            key={jogo.id}
-            id={jogo.id}
+            key={jogo._id}
+            _id={jogo._id}
             title={jogo.title}
             genders={jogo.genders}
             price={jogo.price}

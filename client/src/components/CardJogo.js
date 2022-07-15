@@ -21,7 +21,7 @@ export default function CardJogo(props) {
   const navigate = useNavigate();
 
   function handleAbrirJogo() {
-    navigate(`/detalhe-jogo/${props.id}`);
+    navigate(`/detalhe-jogo/${props._id}`);
   }
 
   return (

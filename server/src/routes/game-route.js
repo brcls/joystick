@@ -6,7 +6,7 @@ const controller = require("../controllers/game-controller");
 const authService = require("../services/auth-service");
 
 router.get("/", controller.get);
-router.get("/admin/:id", controller.getById);
+router.get("/:id", controller.getById);
 router.post("/", authService.isAdmin, controller.post);
 router.put("/admin/:id", authService.isAdmin, controller.put);
 router.delete("/admin/:id", authService.isAdmin, controller.delete);

@@ -31,7 +31,7 @@ export default function Jogo(props) {
       carousel: props.carousel,
       best: props.best,
       new: props.new,
-      id: parseInt(props.id, 10),
+      _id: parseInt(props._id, 10),
     };
 
     setCarrinho([...carrinho, { ...jogo }]);

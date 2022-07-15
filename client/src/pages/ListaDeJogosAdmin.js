@@ -30,8 +30,8 @@ export default function ListaDeJogosAdmin() {
       <StyledList>
         {jogos.map((jogo) => (
           <ItemListaDeJogos
-            key={jogo.id}
-            id={jogo.id}
+            key={jogo._id}
+            _id={jogo._id}
             name={jogo.name}
             genders={jogo.genders}
             price={jogo.price}
