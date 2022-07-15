@@ -47,7 +47,6 @@ export default function CadastrarJogo() {
       gender: [gender, gender2, gender3],
       carousel,
       best,
-      isFree,
       release,
     };
 
@@ -144,16 +143,6 @@ export default function CadastrarJogo() {
           required
           value={best}
           onChange={(e) => setBest(e.target.value)}
-        >
-          <option></option>
-          <option value={true}>Sim</option>
-          <option value={false}>Não</option>
-        </StyledSelect>
-        <label>De graça</label>
-        <StyledSelect
-          required
-          value={isFree}
-          onChange={(e) => setIsFree(e.target.value)}
         >
           <option></option>
           <option value={true}>Sim</option>

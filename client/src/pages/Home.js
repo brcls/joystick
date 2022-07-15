@@ -37,24 +37,26 @@ export default function Home() {
       .catch((error) => {
         alert(error);
       });
+    console.log(jogos);
   }, []);
 
   return (
     <StyledContainer2>
       <Cabecalho />
       <Carousel>
-        {jogos
-          .filter((jogo) => jogo.carousel === "true")
-          .map((jogo) => (
-            <Carousel.Item key={jogo.id}>
-              <Destaques
-                id={jogo.id}
-                name={jogo.name}
-                genders={jogo.genders}
-                descricao={jogo.descricao}
-              />
-            </Carousel.Item>
-          ))}
+        {jogos &&
+          jogos
+            .filter((jogo) => jogo.carousel === true)
+            .map((jogo) => (
+              <Carousel.Item key={jogo._id}>
+                <Destaques
+                  id={jogo._id}
+                  title={jogo.title}
+                  genders={jogo.genders}
+                  description={jogo.description}
+                />
+              </Carousel.Item>
+            ))}
       </Carousel>
 
       <StyledTitulo margem>Melhores Jogos</StyledTitulo>
@@ -64,11 +66,11 @@ export default function Home() {
       <StyledList>
         {jogos.map((jogo) => (
           <CardJogo
-            key={jogo.id}
-            id={jogo.id}
-            name={jogo.name}
+            key={jogo._id}
+            id={jogo._id}
+            title={jogo.title}
             genders={jogo.genders}
-            descricao={jogo.descricao}
+            description={jogo.description}
           />
         ))}
       </StyledList>

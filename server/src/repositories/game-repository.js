@@ -26,7 +26,7 @@ exports.update = async (id, data) => {
       genders: data.genders,
       carousel: data.carousel,
       best: data.best,
-      new: data.new,
+      release: data.release,
     },
   });
 };

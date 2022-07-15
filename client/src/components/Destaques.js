@@ -26,7 +26,7 @@ export default function Destaques(props) {
   const navigate = useNavigate();
 
   function handleAbrirJogo() {
-    navigate(`/detalhe-jogo/${props.id}`);
+    navigate(`/detalhe-jogo/${props._id}`);
   }
 
   return (

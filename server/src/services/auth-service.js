@@ -46,7 +46,6 @@ exports.isAdmin = function (req, res, next) {
           message: "Token Inválido",
         });
       } else {
-        console.log(decoded);
         if (decoded.isAdmin) {
           next();
         } else {
