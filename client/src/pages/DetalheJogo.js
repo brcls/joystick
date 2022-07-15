@@ -44,7 +44,7 @@ export default function DetalheJogo() {
         carousel={carousel}
         best={best}
         isFree={isFree}
-        id={idJogo}
+        _id={idJogo}
       />
       <MarginVert></MarginVert>
     </StyledContainer>

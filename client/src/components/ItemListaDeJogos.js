@@ -27,9 +27,11 @@ const StyledFlex2 = styled(StyledFlex)`
 export default function ItemListaDeJogos(props) {
   function handleRemoveItem(e) {
     e.preventDefault();
-    api.delete(`http://localhost:3000/jogos/?id=${props.id}`).catch((error) => {
-      alert(error);
-    });
+    api
+      .delete(`http://localhost:3000/jogos/?id=${props._id}`)
+      .catch((error) => {
+        alert(error);
+      });
   }
 
   return (
@@ -56,7 +58,7 @@ export default function ItemListaDeJogos(props) {
       <StyledButtonCart onClick={handleRemoveItem}>
         <GiCancel />
       </StyledButtonCart>
-      <StyledLink to={`/editar-jogo/${props.id}`}>
+      <StyledLink to={`/editar-jogo/${props._id}`}>
         <StyledButtonCart>
           <FaEdit />
         </StyledButtonCart>

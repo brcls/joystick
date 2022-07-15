@@ -42,7 +42,7 @@ export default function Carrinho() {
   function handleFinalizar(e) {
     e.preventDefault();
 
-    carrinho.map((jogo) => jogosUser.push(jogo.id));
+    carrinho.map((jogo) => jogosUser.push(jogo._id));
 
     const data = {
       games: jogosUser,
@@ -77,8 +77,8 @@ export default function Carrinho() {
       <StyledList>
         {carrinho.map((jogo) => (
           <ItemCarrinho
-            key={jogo.id}
-            id={jogo.id}
+            key={jogo._id}
+            _id={jogo._id}
             name={jogo.name}
             genders={jogo.genders}
             price={jogo.price}

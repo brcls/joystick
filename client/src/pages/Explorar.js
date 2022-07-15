@@ -44,11 +44,11 @@ export default function Explorar() {
       <Cabecalho />
       <Carousel>
         {jogos
-          .filter((jogo) => jogo.carousel === "true")
+          .filter((jogo) => jogo.carousel === true)
           .map((jogo) => (
-            <Carousel.Item key={jogo.id}>
+            <Carousel.Item key={jogo._id}>
               <Destaques
-                id={jogo.id}
+                _id={jogo._id}
                 name={jogo.name}
                 genders={jogo.genders}
                 description={jogo.description}
@@ -61,11 +61,11 @@ export default function Explorar() {
           <StyledTitulo margem>Jogos em alta</StyledTitulo>
           <StyledList>
             {jogos
-              .filter((jogo) => jogo.carousel === "true")
+              .filter((jogo) => jogo.carousel === true)
               .map((jogo) => (
                 <CardJogo
-                  key={jogo.id}
-                  id={jogo.id}
+                  key={jogo._id}
+                  _id={jogo._id}
                   name={jogo.name}
                   genders={jogo.genders}
                   description={jogo.description}
@@ -77,12 +77,12 @@ export default function Explorar() {
           <StyledTitulo margem>Novidades</StyledTitulo>
           <Carousel>
             {jogos
-              .filter((jogo) => jogo.novidade === "true")
+              .filter((jogo) => jogo.release === true)
               .map((jogo) => (
-                <Carousel.Item key={jogo.id}>
+                <Carousel.Item key={jogo._id}>
                   <CardJogo
-                    key={jogo.id}
-                    id={jogo.id}
+                    key={jogo._id}
+                    _id={jogo._id}
                     name={jogo.name}
                     genders={jogo.genders}
                     description={jogo.description}
@@ -93,12 +93,12 @@ export default function Explorar() {
           <StyledTitulo margem>Jogos grátis</StyledTitulo>
           <Carousel>
             {jogos
-              .filter((jogo) => jogo.isFree === "true")
+              .filter((jogo) => jogo.isFree === true)
               .map((jogo) => (
-                <Carousel.Item key={jogo.id}>
+                <Carousel.Item key={jogo._id}>
                   <CardJogo
-                    key={jogo.id}
-                    id={jogo.id}
+                    key={jogo._id}
+                    _id={jogo._id}
                     name={jogo.name}
                     genders={jogo.genders}
                     description={jogo.description}

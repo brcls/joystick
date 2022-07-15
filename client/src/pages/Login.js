@@ -33,7 +33,7 @@ export default function Login() {
     const usuario = users.find((user) => user.username === username);
 
     if (usuario && password === usuario.password) {
-      sessionStorage.setItem("id", usuario.id);
+      sessionStorage.setItem("id", usuario._id);
       navigate("/");
     } else {
       alert("Password ou username incorretos! Digite de novo.");

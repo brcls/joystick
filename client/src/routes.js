@@ -30,6 +30,14 @@ function Rotas() {
         <Route path="/lista-de-jogos" element={<ListaDeJogosAdmin />} />
         <Route path="/editar-jogo/:id" element={<EditarJogo />} />
         <Route
+          path="/perfil/:id"
+          element={
+            <RequireAuth>
+              <Perfil />
+            </RequireAuth>
+          }
+        />
+        <Route
           path="/carrinho/:id"
           element={
             <RequireAuth>

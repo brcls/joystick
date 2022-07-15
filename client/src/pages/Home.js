@@ -50,7 +50,7 @@ export default function Home() {
             .map((jogo) => (
               <Carousel.Item key={jogo._id}>
                 <Destaques
-                  id={jogo._id}
+                  _id={jogo._id}
                   title={jogo.title}
                   genders={jogo.genders}
                   description={jogo.description}
@@ -67,7 +67,7 @@ export default function Home() {
         {jogos.map((jogo) => (
           <CardJogo
             key={jogo._id}
-            id={jogo._id}
+            _id={jogo._id}
             title={jogo.title}
             genders={jogo.genders}
             description={jogo.description}
