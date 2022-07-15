@@ -35,13 +35,12 @@ exports.post = async (req, res, next) => {
       genders: req.body.genders,
       carousel: req.body.carousel,
       best: req.body.best,
-      new: req.body.new,
+      release: req.body.release,
     });
     res.status(201).send({
       message: "Jogo cadastrado com sucesso!",
     });
   } catch (e) {
-    console.log(e);
     res.status(500).send({
       message: "Falha ao processar sua requisição",
     });
@@ -51,7 +50,7 @@ exports.post = async (req, res, next) => {
 exports.put = async (req, res, next) => {
   try {
     await repository.update(req.params.id, req.body);
-    console.log(req.params.id);
+
     res.status(200).send({
       message: "Jogo atualizado com sucesso!",
     });
@@ -64,7 +63,7 @@ exports.put = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
   try {
-    await repository.delete(req.body.id);
+    await repository.delete(req.params.id);
     res.status(200).send({
       message: "Jogo removido com sucesso!",
     });

@@ -36,7 +36,7 @@ const schema = new Schema({
     type: Boolean,
     required: true,
   },
-  new: {
+  release: {
     type: Boolean,
     required: true,
   },
