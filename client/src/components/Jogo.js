@@ -24,13 +24,13 @@ export default function Jogo(props) {
     e.preventDefault();
 
     const jogo = {
-      nome: props.nome,
-      descricao: props.descricao,
-      preco: props.preco,
-      genero: props.genero,
-      destaque: props.destaque,
-      melhores: props.melhores,
-      isFree: props.isFree,
+      title: props.title,
+      description: props.description,
+      price: props.price,
+      genders: props.genders,
+      carousel: props.carousel,
+      best: props.best,
+      new: props.new,
       id: parseInt(props.id, 10),
     };
 
@@ -42,13 +42,13 @@ export default function Jogo(props) {
     <StyledJogo>
       <img src={ImgJogo} alt="jogo" />
       <StyledConteudo>
-        <h1>{props.nome}</h1>
+        <h1>{props.title}</h1>
         <StyledGeneros>
-          <StyledCategoria>{props.genero[0]}</StyledCategoria>
-          <StyledCategoria> {props.genero[1]}</StyledCategoria>
-          <StyledCategoria> {props.genero[2]}</StyledCategoria>
+          <StyledCategoria>{props.genders[0]}</StyledCategoria>
+          <StyledCategoria> {props.genders[1]}</StyledCategoria>
+          <StyledCategoria> {props.genders[2]}</StyledCategoria>
         </StyledGeneros>
-        <p>{props.descricao}</p>
+        <p>{props.description}</p>
         <StyledButton noMargin onClick={handleComprarJogo}>
           Comprar
         </StyledButton>

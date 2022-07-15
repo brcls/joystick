@@ -33,13 +33,13 @@ export default function Destaques(props) {
     <StyledDestaque>
       <Image src={Jogo} alt="jogo" />
       <StyledConteudo2>
-        <h1>{props.nome}</h1>
+        <h1>{props.title}</h1>
         <StyledGeneros>
-          <StyledCategoria> {props.genero[0]}</StyledCategoria>
-          <StyledCategoria> {props.genero[1]}</StyledCategoria>
-          <StyledCategoria> {props.genero[2]}</StyledCategoria>
+          <StyledCategoria> {props.genders[0]}</StyledCategoria>
+          <StyledCategoria> {props.genders[1]}</StyledCategoria>
+          <StyledCategoria> {props.genders[2]}</StyledCategoria>
         </StyledGeneros>
-        <p>{props.descricao} </p>
+        <p>{props.description} </p>
         <StyledButton noMargin onClick={handleAbrirJogo}>
           Comprar
         </StyledButton>

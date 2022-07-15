@@ -27,7 +27,7 @@ const StyledFlex2 = styled(StyledFlex)`
 export default function ItemListaDeJogos(props) {
   function handleRemoveItem(e) {
     e.preventDefault();
-    api.delete(`http://localhost:3000/jogos/${props.id}`).catch((error) => {
+    api.delete(`http://localhost:3000/jogos/?id=${props.id}`).catch((error) => {
       alert(error);
     });
   }
@@ -37,21 +37,21 @@ export default function ItemListaDeJogos(props) {
       <StyledCardGame baixo>
         <img src={ImgJogo} alt="jogo" />
         <StyledConteudo>
-          <h1>{props.nome}</h1>
+          <h1>{props.title}</h1>
           <StyledGeneros>
             <StyledCategoria>
-              {props.genero[0] ? props.genero[0] : "teste"}
+              {props.genders[0] ? props.genders[0] : "teste"}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero[1] ? props.genero[1] : "teste"}
+              {props.genders[1] ? props.genders[1] : "teste"}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero[2] ? props.genero[2] : "teste"}
+              {props.genders[2] ? props.genders[2] : "teste"}
             </StyledCategoria>
           </StyledGeneros>
           <StyledTitulo>{props.preco}</StyledTitulo>
         </StyledConteudo>
-        <p>{props.descricao}</p>
+        <p>{props.decription}</p>
       </StyledCardGame>
       <StyledButtonCart onClick={handleRemoveItem}>
         <GiCancel />

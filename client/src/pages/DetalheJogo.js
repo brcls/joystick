@@ -8,24 +8,24 @@ import api from "../services/api";
 
 export default function DetalheJogo() {
   const { idJogo } = useParams();
-  const [nome, setNome] = useState();
-  const [descricao, setDescricao] = useState();
-  const [preco, setPreco] = useState();
-  const [genero, setGenero] = useState([]);
-  const [destaque, setDestaque] = useState();
-  const [melhores, setMelhores] = useState();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [price, setPrice] = useState();
+  const [genders, setGenders] = useState([]);
+  const [carousel, setCarousel] = useState();
+  const [best, setBest] = useState();
   const [isFree, setIsFree] = useState();
 
   useEffect(() => {
     api
-      .get(`http://localhost:3000/jogos/${idJogo}`)
+      .get(`http://localhost:3000/games/?id=${idJogo}`)
       .then(({ data }) => {
-        setNome(data.nome);
-        setDescricao(data.descricao);
-        setPreco(data.preco);
-        setGenero(data.genero);
-        setDestaque(data.destaque);
-        setMelhores(data.melhores);
+        setName(data.name);
+        setDescription(data.description);
+        setPrice(data.price);
+        setGenders(data.genders);
+        setCarousel(data.carousel);
+        setBest(data.best);
         setIsFree(data.isFree);
       })
       .catch((error) => {
@@ -37,12 +37,12 @@ export default function DetalheJogo() {
     <StyledContainer>
       <Cabecalho />
       <Jogo
-        nome={nome}
-        descricao={descricao}
-        preco={preco}
-        genero={genero}
-        destaque={destaque}
-        melhores={melhores}
+        name={name}
+        description={description}
+        price={price}
+        genders={genders}
+        carousel={carousel}
+        best={best}
         isFree={isFree}
         id={idJogo}
       />

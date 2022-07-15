@@ -11,26 +11,26 @@ import {
 } from "../styles";
 
 export default function Cadastro() {
-  const [nome, setNome] = useState();
+  const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const [password, setPassword] = useState();
   const navigate = useNavigate();
 
   function handleNovoUsuario(e) {
     e.preventDefault();
 
     const data = {
-      nome,
+      name,
       username,
       email,
-      senha,
-      idJogos: [],
+      password,
+      games: [],
       isAdmin: false,
     };
 
     api
-      .post("http://localhost:3000/usuarios", data)
+      .post("http://localhost:3000/users", data)
       .then(() => {
         navigate("/");
       })
@@ -46,10 +46,10 @@ export default function Cadastro() {
         <h1>Cadastro</h1>
         <StyledInput
           required
-          placeholder="Nome"
+          placeholder="Name"
           type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <StyledInput
           required
@@ -67,10 +67,10 @@ export default function Cadastro() {
         />
         <StyledInput
           required
-          placeholder="Senha"
+          placeholder="Password"
           type="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <StyledButton type="submit">Cadastro</StyledButton>
         <p>Já possui cadastro?</p>

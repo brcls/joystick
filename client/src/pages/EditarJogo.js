@@ -14,41 +14,41 @@ import {
 
 export default function EditarJogo() {
   const { id } = useParams();
-  const [nome, setNome] = useState();
-  const [descricao, setDescricao] = useState();
-  const [preco, setPreco] = useState();
-  const [genero, setGenero] = useState();
-  const [genero2, setGenero2] = useState();
-  const [genero3, setGenero3] = useState();
-  const [destaque, setDestaque] = useState();
-  const [melhores, setMelhores] = useState();
-  const [novidade, setNovidade] = useState();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [price, setPrice] = useState();
+  const [gender, setGender] = useState();
+  const [gender2, setGender2] = useState();
+  const [gender3, setGender3] = useState();
+  const [carousel, setCarousel] = useState();
+  const [best, setBest] = useState();
+  const [release, setRelease] = useState();
   const [isFree, setIsFree] = useState();
-  const [generos, setGeneros] = useState();
+  const [genders, setGenders] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     api
-      .get("http://localhost:3000/generos")
+      .get("http://localhost:3000/genders")
       .then(({ data }) => {
-        setGeneros(data);
+        setGenders(data);
       })
       .catch((error) => {
         alert(error);
       });
 
     api
-      .get(`http://localhost:3000/jogos/${id}`)
+      .get(`http://localhost:3000/games/${id}`)
       .then(({ data }) => {
-        setNome(data.nome);
-        setDescricao(data.descricao);
-        setPreco(data.preco);
-        setGenero(data.genero[0]);
-        setGenero2(data.genero[1]);
-        setGenero3(data.genero[2]);
-        setDestaque(data.destaque);
-        setNovidade(data.novidade);
+        setName(data.name);
+        setDescription(data.description);
+        setPrice(data.price);
+        setGender(data.gender[0]);
+        setGender2(data.gender[1]);
+        setGender3(data.gender[2]);
+        setCarousel(data.carousel);
+        setRelease(data.release);
         setIsFree(data.isFree);
       })
       .catch((error) => {
@@ -60,18 +60,18 @@ export default function EditarJogo() {
     e.preventDefault();
 
     const data = {
-      nome,
-      descricao,
-      preco: parseInt(preco, 10),
-      genero: [genero, genero2, genero3],
-      destaque,
-      melhores,
+      name,
+      description,
+      price: parseInt(price, 10),
+      gender: [gender, gender2, gender3],
+      carousel,
+      best,
       isFree,
-      novidade,
+      release,
     };
 
     api
-      .patch("http://localhost:3000/jogos", data)
+      .patch("http://localhost:3000/games", data)
       .then(() => {
         navigate("/");
       })
@@ -87,82 +87,82 @@ export default function EditarJogo() {
         <h1>Editar Jogo</h1>
         <StyledInput
           required
-          placeholder="Nome"
+          placeholder="Name"
           type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <StyledTextarea
           required
-          placeholder="Descricao"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <StyledInput
           required
           placeholder="Preço"
           type="number"
-          value={preco}
-          onChange={(e) => setPreco(e.target.value)}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
         />
         <label>Gêneros</label>
         <StyledSelect
           required
-          value={genero}
-          onChange={(e) => setGenero(e.target.value)}
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
         >
           <option></option>
-          {generos
-            ? generos.map((genero) => (
-                <option value={genero.genero} key={genero.id}>
-                  {genero.genero}
+          {genders
+            ? genders.map((gender) => (
+                <option value={gender.gender} key={gender.id}>
+                  {gender.gender}
                 </option>
               ))
             : "nada"}
         </StyledSelect>
         <StyledSelect
           required
-          value={genero2}
-          onChange={(e) => setGenero2(e.target.value)}
+          value={gender2}
+          onChange={(e) => setGender2(e.target.value)}
         >
           <option></option>
-          {generos
-            ? generos.map((genero) => (
-                <option value={genero.genero} key={genero.id}>
-                  {genero.genero}
+          {genders
+            ? genders.map((gender) => (
+                <option value={gender.gender} key={gender.id}>
+                  {gender.gender}
                 </option>
               ))
             : "nada"}
         </StyledSelect>
         <StyledSelect
           required
-          value={genero3}
-          onChange={(e) => setGenero3(e.target.value)}
+          value={gender3}
+          onChange={(e) => setGender3(e.target.value)}
         >
           <option></option>
-          {generos
-            ? generos.map((genero) => (
-                <option value={genero.genero} key={genero.id}>
-                  {genero.genero}
+          {genders
+            ? genders.map((gender) => (
+                <option value={gender.gender} key={gender.id}>
+                  {gender.gender}
                 </option>
               ))
             : "nada"}
         </StyledSelect>
-        <label>Destaque</label>
+        <label>Carousel</label>
         <StyledSelect
           required
-          value={destaque}
-          onChange={(e) => setDestaque(e.target.value)}
+          value={carousel}
+          onChange={(e) => setCarousel(e.target.value)}
         >
           <option></option>
           <option value={true}>Sim</option>
           <option value={false}>Não</option>
         </StyledSelect>
-        <label>Melhores</label>
+        <label>Best</label>
         <StyledSelect
           required
-          value={melhores}
-          onChange={(e) => setMelhores(e.target.value)}
+          value={best}
+          onChange={(e) => setBest(e.target.value)}
         >
           <option></option>
           <option value={true}>Sim</option>
@@ -178,11 +178,11 @@ export default function EditarJogo() {
           <option value={true}>Sim</option>
           <option value={false}>Não</option>
         </StyledSelect>
-        <label>Novidade</label>
+        <label>Release</label>
         <StyledSelect
           required
-          value={novidade}
-          onChange={(e) => setNovidade(e.target.value)}
+          value={release}
+          onChange={(e) => setRelease(e.target.value)}
         >
           <option></option>
           <option value={true}>Sim</option>

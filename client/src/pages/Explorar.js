@@ -30,7 +30,7 @@ export default function Explorar() {
 
   useEffect(() => {
     api
-      .get("http://localhost:3000/jogos")
+      .get("http://localhost:3000/games")
       .then(({ data }) => {
         setJogos(data);
       })
@@ -44,14 +44,14 @@ export default function Explorar() {
       <Cabecalho />
       <Carousel>
         {jogos
-          .filter((jogo) => jogo.destaque === "true")
+          .filter((jogo) => jogo.carousel === "true")
           .map((jogo) => (
             <Carousel.Item key={jogo.id}>
               <Destaques
                 id={jogo.id}
-                nome={jogo.nome}
-                genero={jogo.genero}
-                descricao={jogo.descricao}
+                name={jogo.name}
+                genders={jogo.genders}
+                description={jogo.description}
               />
             </Carousel.Item>
           ))}
@@ -61,14 +61,14 @@ export default function Explorar() {
           <StyledTitulo margem>Jogos em alta</StyledTitulo>
           <StyledList>
             {jogos
-              .filter((jogo) => jogo.destaque === "true")
+              .filter((jogo) => jogo.carousel === "true")
               .map((jogo) => (
                 <CardJogo
                   key={jogo.id}
                   id={jogo.id}
-                  nome={jogo.nome}
-                  generos={jogo.genero}
-                  descricao={jogo.descricao}
+                  name={jogo.name}
+                  genders={jogo.genders}
+                  description={jogo.description}
                 />
               ))}
           </StyledList>
@@ -83,9 +83,9 @@ export default function Explorar() {
                   <CardJogo
                     key={jogo.id}
                     id={jogo.id}
-                    nome={jogo.nome}
-                    generos={jogo.genero}
-                    descricao={jogo.descricao}
+                    name={jogo.name}
+                    genders={jogo.genders}
+                    description={jogo.description}
                   />
                 </Carousel.Item>
               ))}
@@ -99,9 +99,9 @@ export default function Explorar() {
                   <CardJogo
                     key={jogo.id}
                     id={jogo.id}
-                    nome={jogo.nome}
-                    generos={jogo.genero}
-                    descricao={jogo.descricao}
+                    name={jogo.name}
+                    genders={jogo.genders}
+                    description={jogo.description}
                   />
                 </Carousel.Item>
               ))}
