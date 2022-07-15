@@ -8,7 +8,7 @@ import api from "../services/api";
 
 export default function DetalheJogo() {
   const { idJogo } = useParams();
-  const [name, setName] = useState();
+  const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [price, setPrice] = useState();
   const [genders, setGenders] = useState([]);
@@ -18,9 +18,9 @@ export default function DetalheJogo() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:3000/games/?id=${idJogo}`)
+      .get(`http://localhost:3000/games/${idJogo}`)
       .then(({ data }) => {
-        setName(data.name);
+        setTitle(data.title);
         setDescription(data.description);
         setPrice(data.price);
         setGenders(data.genders);
@@ -37,7 +37,7 @@ export default function DetalheJogo() {
     <StyledContainer>
       <Cabecalho />
       <Jogo
-        name={name}
+        title={title}
         description={description}
         price={price}
         genders={genders}

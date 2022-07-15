@@ -13,42 +13,37 @@ import { useNavigate, useParams } from "react-router-dom";
 import ImgPerfil from "../assets/perfil.jpg";
 
 export default function Perfil() {
-  const { id } = useParams();
-  const [name, setName] = useState();
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [isAdmin, setIsAdmin] = useState();
+  const [user, setUser] = useState();
+  const [newUser, setNewUser] = useState({});
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const config = {
+      headers: {
+        "x-access-token": sessionStorage.getItem("token"),
+      },
+    };
     api
-      .get(`http://localhost:3000/usuarios/?id=${id}`)
+      .get(`http://localhost:3000/users`, config)
       .then(({ data }) => {
-        setName(data.name);
-        setUsername(data.username);
-        setEmail(data.email);
-        setPassword(data.password);
-        setIsAdmin(data.isAdmin);
+        setUser(data);
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       });
   }, []);
 
   function handleAtualizarUser(e) {
     e.preventDefault();
 
-    const data = {
-      name,
-      username,
-      email,
-      password,
-    };
-
     api
-      .patch(`http://localhost:3000/usuarios/?id=${id}`, data)
+      .put(`http://localhost:3000/users`, {
+        headers: {
+          "x-access-token": sessionStorage.getItem("token"),
+          data: newUser,
+        },
+      })
       .then(() => {
         navigate("/");
       })
@@ -60,7 +55,7 @@ export default function Perfil() {
   function handleSair(e) {
     e.preventDefault();
 
-    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("token");
     navigate("/");
   }
 
@@ -73,34 +68,34 @@ export default function Perfil() {
         <StyledInput
           placeholder="Name"
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={user.name}
+          onChange={(e) => setNewUser(...user, { name: e.target.value })}
         />
         <StyledInput
           placeholder="Username"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={user.username}
+          onChange={(e) => setNewUser(...user, { username: e.target.value })}
         />
         <StyledInput
           placeholder="E-mail"
           type="email"
           id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={user.email}
+          onChange={(e) => setNewUser(...user, { email: e.target.value })}
         />
         <StyledInput
           placeholder="Password"
           type="text"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={user.password}
+          onChange={(e) => setNewUser(...user, { password: e.target.value })}
         />
         <StyledButton type="submit">Salvar</StyledButton>
 
         <StyledButton onClick={handleSair}>Sair</StyledButton>
 
-        {isAdmin ? (
+        {user.isAdmin ? (
           <StyledLink to="/lista-de-jogos">
             <StyledButton>Lista de jogos</StyledButton>
           </StyledLink>

@@ -10,8 +10,6 @@ import ImgControle from "../assets/controle-de-video-game.png";
 import { FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
 
 export default function Cabecalho() {
-  const usuarioId = sessionStorage.getItem("id");
-
   return (
     <>
       <StyledCabecalho>
@@ -32,18 +30,18 @@ export default function Cabecalho() {
           <StyledLink to="/explorar">
             <StyledSubTitulo>Explorar</StyledSubTitulo>
           </StyledLink>
-          <StyledLink to={`/biblioteca/${usuarioId}`}>
+          <StyledLink to={`/biblioteca`}>
             <StyledSubTitulo>Biblioteca</StyledSubTitulo>
           </StyledLink>
         </div>
 
         <div>
-          <StyledLink to={`/carrinho/${usuarioId}`}>
+          <StyledLink to={`/carrinho`}>
             <StyledRoundButton>
               <FaShoppingCart />
             </StyledRoundButton>
           </StyledLink>
-          <StyledLink to={`/perfil/${usuarioId}`}>
+          <StyledLink to={`/perfil`}>
             <StyledRoundButton>
               <FaUser />
             </StyledRoundButton>

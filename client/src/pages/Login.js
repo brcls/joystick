@@ -12,32 +12,24 @@ import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [users, setUsers] = useState();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  async function handleLogin(e) {
+    e.preventDefault();
     api
-      .get(`http://localhost:3000/users`)
+      .post(`http://localhost:3000/users/authenticate`, {
+        email: email,
+        password: password,
+      })
       .then(({ data }) => {
-        setUsers(data);
+        sessionStorage.setItem("token", data.token);
+        navigate("/");
       })
       .catch((error) => {
         alert(error);
       });
-  }, []);
-
-  async function handleLogin(e) {
-    e.preventDefault();
-    const usuario = users.find((user) => user.username === username);
-
-    if (usuario && password === usuario.password) {
-      sessionStorage.setItem("id", usuario._id);
-      navigate("/");
-    } else {
-      alert("Password ou username incorretos! Digite de novo.");
-    }
   }
 
   return (
@@ -47,10 +39,10 @@ export default function Login() {
         <h1>Login</h1>
         <StyledInput
           required
-          placeholder="Username"
+          placeholder="Email"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <StyledInput
           required

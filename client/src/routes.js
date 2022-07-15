@@ -30,7 +30,7 @@ function Rotas() {
         <Route path="/lista-de-jogos" element={<ListaDeJogosAdmin />} />
         <Route path="/editar-jogo/:id" element={<EditarJogo />} />
         <Route
-          path="/perfil/:id"
+          path="/perfil/"
           element={
             <RequireAuth>
               <Perfil />
@@ -38,7 +38,7 @@ function Rotas() {
           }
         />
         <Route
-          path="/carrinho/:id"
+          path="/carrinho"
           element={
             <RequireAuth>
               <Carrinho />
@@ -46,7 +46,7 @@ function Rotas() {
           }
         />
         <Route
-          path="/biblioteca/:id"
+          path="/biblioteca"
           element={
             <RequireAuth>
               <Biblioteca />

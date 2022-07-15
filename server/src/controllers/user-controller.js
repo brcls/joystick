@@ -28,6 +28,7 @@ exports.post = async (req, res, next) => {
 
 exports.authenticate = async (req, res, next) => {
   try {
+    console.log(req.body);
     const user = await repository.authenticate({
       email: req.body.email,
       password: md5(req.body.password + global.SALT_KEY),
@@ -112,6 +113,19 @@ exports.putGame = async (req, res, next) => {
     res.status(200).send({
       message: "Jogo adicionado com sucesso!",
     });
+  } catch (e) {
+    res.status(500).send({
+      message: "Falha ao processar sua requisição",
+    });
+  }
+};
+
+exports.get = async (req, res, next) => {
+  try {
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
+    const data = await authService.decodeToken(token);
+    res.status(200).send(data);
   } catch (e) {
     res.status(500).send({
       message: "Falha ao processar sua requisição",
