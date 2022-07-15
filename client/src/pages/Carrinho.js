@@ -23,9 +23,9 @@ export default function Carrinho() {
     localStorage.setItem("cart", JSON.stringify(carrinho));
 
     api
-      .get(`http://localhost:3000/usuarios/${id}`)
+      .get(`http://localhost:3000/users/?id=${id}`)
       .then(({ data }) => {
-        jogosUser = data.idJogos.slice();
+        jogosUser = data.games.slice();
       })
       .catch((error) => {
         alert(error);
@@ -45,11 +45,11 @@ export default function Carrinho() {
     carrinho.map((jogo) => jogosUser.push(jogo.id));
 
     const data = {
-      idJogos: jogosUser,
+      games: jogosUser,
     };
 
     api
-      .patch(`http://localhost:3000/usuarios/${id}`, data)
+      .patch(`http://localhost:3000/users/?id=${id}`, data)
       .then(() => {
         navigate("/");
       })
@@ -64,7 +64,7 @@ export default function Carrinho() {
   function handleCalcTotal() {
     let total = 0;
 
-    carrinho.map((jogo) => (total += jogo.preco));
+    carrinho.map((jogo) => (total += jogo.price));
     console.log(total);
 
     return total;
@@ -79,9 +79,9 @@ export default function Carrinho() {
           <ItemCarrinho
             key={jogo.id}
             id={jogo.id}
-            nome={jogo.nome}
-            genero={jogo.genero}
-            preco={jogo.preco}
+            name={jogo.name}
+            genders={jogo.genders}
+            price={jogo.price}
           />
         ))}
       </StyledList>

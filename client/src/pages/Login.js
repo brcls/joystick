@@ -13,15 +13,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState();
-  const [senha, setSenha] = useState();
-  const [usuarios, setUsuarios] = useState();
+  const [password, setPassword] = useState();
+  const [users, setUsers] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
     api
-      .get(`http://localhost:3000/usuarios`)
+      .get(`http://localhost:3000/users`)
       .then(({ data }) => {
-        setUsuarios(data);
+        setUsers(data);
       })
       .catch((error) => {
         alert(error);
@@ -30,13 +30,13 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
-    const usuario = usuarios.find((user) => user.username === username);
+    const usuario = users.find((user) => user.username === username);
 
-    if (usuario && senha === usuario.senha) {
+    if (usuario && password === usuario.password) {
       sessionStorage.setItem("id", usuario.id);
       navigate("/");
     } else {
-      alert("Senha ou username incorretos! Digite de novo.");
+      alert("Password ou username incorretos! Digite de novo.");
     }
   }
 
@@ -54,10 +54,10 @@ export default function Login() {
         />
         <StyledInput
           required
-          placeholder="Senha"
+          placeholder="Password"
           type="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <StyledButton type="submit">Login</StyledButton>
         <p>Não possui cadastro?</p>

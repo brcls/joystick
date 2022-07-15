@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     api
-      .get("http://localhost:3000/jogos")
+      .get("http://localhost:3000/games")
       .then(({ data }) => {
         setJogos(data);
       })
@@ -44,13 +44,13 @@ export default function Home() {
       <Cabecalho />
       <Carousel>
         {jogos
-          .filter((jogo) => jogo.destaque === "true")
+          .filter((jogo) => jogo.carousel === "true")
           .map((jogo) => (
             <Carousel.Item key={jogo.id}>
               <Destaques
                 id={jogo.id}
-                nome={jogo.nome}
-                genero={jogo.genero}
+                name={jogo.name}
+                genders={jogo.genders}
                 descricao={jogo.descricao}
               />
             </Carousel.Item>
@@ -66,8 +66,8 @@ export default function Home() {
           <CardJogo
             key={jogo.id}
             id={jogo.id}
-            nome={jogo.nome}
-            generos={jogo.genero}
+            name={jogo.name}
+            genders={jogo.genders}
             descricao={jogo.descricao}
           />
         ))}

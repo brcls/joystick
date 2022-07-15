@@ -41,19 +41,19 @@ export default function ItemCarrinho(props) {
       <StyledCardGame baixo>
         <img src={ImgJogo} alt="jogo" />
         <StyledConteudo>
-          <h1>{props.nome}</h1>
+          <h1>{props.title}</h1>
           <StyledGeneros>
             <StyledCategoria>
-              {props.genero ? props.genero[0] : ""}
+              {props.genders ? props.genders[0] : ""}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[1] : ""}
+              {props.genders ? props.genders[1] : ""}
             </StyledCategoria>
             <StyledCategoria>
-              {props.genero ? props.genero[2] : ""}
+              {props.genders ? props.genders[2] : ""}
             </StyledCategoria>
           </StyledGeneros>
-          <StyledTitulo>R${props.preco}</StyledTitulo>
+          <StyledTitulo>R${props.price}</StyledTitulo>
         </StyledConteudo>
       </StyledCardGame>
       <StyledButtonCart onClick={handleRemoveItem}>

@@ -14,7 +14,7 @@ export default function ListaDeJogosAdmin() {
   const [jogos, setJogos] = useState([]);
   useEffect(() => {
     api
-      .get("http://localhost:3000/jogos")
+      .get("http://localhost:3000/games")
       .then(({ data }) => {
         setJogos(data);
       })
@@ -32,10 +32,10 @@ export default function ListaDeJogosAdmin() {
           <ItemListaDeJogos
             key={jogo.id}
             id={jogo.id}
-            nome={jogo.nome}
-            genero={jogo.genero}
-            preco={jogo.preco}
-            descricao={jogo.descricao}
+            name={jogo.name}
+            genders={jogo.genders}
+            price={jogo.price}
+            description={jogo.description}
           />
         ))}
       </StyledList>

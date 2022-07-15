@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import api from "../services/api";
 import {
@@ -12,8 +12,9 @@ import {
   MarginVert,
 } from "../styles";
 
-export default function CadastrarJogo() {
-  const [title, setTitle] = useState();
+export default function EditarJogo() {
+  const { id } = useParams();
+  const [name, setName] = useState();
   const [description, setDescription] = useState();
   const [price, setPrice] = useState();
   const [gender, setGender] = useState();
@@ -22,6 +23,7 @@ export default function CadastrarJogo() {
   const [carousel, setCarousel] = useState();
   const [best, setBest] = useState();
   const [release, setRelease] = useState();
+  const [isFree, setIsFree] = useState();
   const [genders, setGenders] = useState();
 
   const navigate = useNavigate();
@@ -35,13 +37,30 @@ export default function CadastrarJogo() {
       .catch((error) => {
         alert(error);
       });
+
+    api
+      .get(`http://localhost:3000/games/${id}`)
+      .then(({ data }) => {
+        setName(data.name);
+        setDescription(data.description);
+        setPrice(data.price);
+        setGender(data.gender[0]);
+        setGender2(data.gender[1]);
+        setGender3(data.gender[2]);
+        setCarousel(data.carousel);
+        setRelease(data.release);
+        setIsFree(data.isFree);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }, []);
 
-  function handleNovoJogo(e) {
+  function handleEditarJogo(e) {
     e.preventDefault();
 
     const data = {
-      title,
+      name,
       description,
       price: parseInt(price, 10),
       gender: [gender, gender2, gender3],
@@ -52,7 +71,7 @@ export default function CadastrarJogo() {
     };
 
     api
-      .post("http://localhost:3000/games", data)
+      .patch("http://localhost:3000/games", data)
       .then(() => {
         navigate("/");
       })
@@ -64,14 +83,14 @@ export default function CadastrarJogo() {
   return (
     <StyledContainer>
       <Cabecalho />
-      <StyledForm onSubmit={handleNovoJogo}>
-        <h1>Cadastro de Jogo</h1>
+      <StyledForm onSubmit={handleEditarJogo}>
+        <h1>Editar Jogo</h1>
         <StyledInput
           required
-          placeholder="Title"
+          placeholder="Name"
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <StyledTextarea
           required
@@ -169,7 +188,7 @@ export default function CadastrarJogo() {
           <option value={true}>Sim</option>
           <option value={false}>Não</option>
         </StyledSelect>
-        <StyledButton type="submit">Cadastrar jogo</StyledButton>
+        <StyledButton type="submit">Editar jogo</StyledButton>
       </StyledForm>
       <MarginVert></MarginVert>
     </StyledContainer>

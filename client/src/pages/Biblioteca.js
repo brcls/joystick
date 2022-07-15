@@ -18,7 +18,7 @@ export default function Biblioteca() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:3000/usuarios/${id}`)
+      .get(`http://localhost:3000/users/?id=${id}`)
       .then(({ data }) => {
         setUsuario(data);
       })
@@ -27,7 +27,7 @@ export default function Biblioteca() {
       });
 
     api
-      .get("http://localhost:3000/jogos")
+      .get("http://localhost:3000/games")
       .then(({ data }) => {
         setJogos(data);
       })
@@ -35,9 +35,9 @@ export default function Biblioteca() {
         alert(error);
       });
 
-    if (usuario.idJogos) {
-      for (var i = 0; i < usuario.idJogos.length; i++) {
-        const auxiliar = jogos.find((jogo) => jogo.id === usuario.idJogos[i]);
+    if (usuario.games) {
+      for (var i = 0; i < usuario.games.length; i++) {
+        const auxiliar = jogos.find((jogo) => jogo.id === usuario.games[i]);
 
         if (auxiliar && !biblioteca.find((item) => item.id === auxiliar.id)) {
           setBiblioteca([...biblioteca, { ...auxiliar }]);
@@ -55,10 +55,10 @@ export default function Biblioteca() {
           <ItemBiblioteca
             key={jogo.id}
             id={jogo.id}
-            nome={jogo.nome}
-            genero={jogo.genero}
-            preco={jogo.preco}
-            descricao={jogo.descricao}
+            title={jogo.title}
+            genders={jogo.genders}
+            price={jogo.price}
+            description={jogo.description}
           />
         ))}
       </StyledList>

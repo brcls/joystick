@@ -10,6 +10,7 @@ import Explorar from "./pages/Explorar";
 import DetalheJogo from "./pages/DetalheJogo";
 import CadastrarJogo from "./pages/CadastrarJogo";
 import ListaDeJogosAdmin from "./pages/ListaDeJogosAdmin";
+import EditarJogo from "./pages/EditarJogo";
 
 import RequireAuth from "./RequireAuth";
 
@@ -27,14 +28,7 @@ function Rotas() {
         <Route path="/detalhe-jogo/:idJogo" element={<DetalheJogo />} />
         <Route path="/cadastrar-jogo" element={<CadastrarJogo />} />
         <Route path="/lista-de-jogos" element={<ListaDeJogosAdmin />} />
-        <Route
-          path="/perfil/:id"
-          element={
-            <RequireAuth>
-              <Perfil />
-            </RequireAuth>
-          }
-        />
+        <Route path="/editar-jogo/:id" element={<EditarJogo />} />
         <Route
           path="/carrinho/:id"
           element={

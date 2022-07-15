@@ -28,11 +28,11 @@ export default function CardJogo(props) {
     <StyledCardGame>
       <Image src={ImgJogo} alt="jogo" />
       <StyledConteudo>
-        <h1>{props.nome}</h1>
+        <h1>{props.title}</h1>
         <StyledGeneros>
-          <StyledCategoria> {props.generos[0]}</StyledCategoria>
-          <StyledCategoria> {props.generos[1]}</StyledCategoria>
-          <StyledCategoria> {props.generos[2]}</StyledCategoria>
+          <StyledCategoria> {props.genders[0]}</StyledCategoria>
+          <StyledCategoria> {props.genders[1]}</StyledCategoria>
+          <StyledCategoria> {props.genders[2]}</StyledCategoria>
         </StyledGeneros>
         <StyledButton noMargin onClick={handleAbrirJogo}>
           Comprar

@@ -6,6 +6,7 @@ import {
   StyledForm,
   StyledProfileImg,
   StyledButton,
+  StyledLink,
 } from "../styles";
 import api from "../services/api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,20 +14,23 @@ import ImgPerfil from "../assets/perfil.jpg";
 
 export default function Perfil() {
   const { id } = useParams();
-  const [nome, setNome] = useState();
+  const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const [password, setPassword] = useState();
+  const [isAdmin, setIsAdmin] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
     api
-      .get(`http://localhost:3000/usuarios/${id}`)
+      .get(`http://localhost:3000/usuarios/?id=${id}`)
       .then(({ data }) => {
-        setNome(data.nome);
+        setName(data.name);
         setUsername(data.username);
         setEmail(data.email);
-        setSenha(data.senha);
+        setPassword(data.password);
+        setIsAdmin(data.isAdmin);
       })
       .catch((error) => {
         alert(error);
@@ -37,14 +41,14 @@ export default function Perfil() {
     e.preventDefault();
 
     const data = {
-      nome,
+      name,
       username,
       email,
-      senha,
+      password,
     };
 
     api
-      .patch(`http://localhost:3000/usuarios/${id}`, data)
+      .patch(`http://localhost:3000/usuarios/?id=${id}`, data)
       .then(() => {
         navigate("/");
       })
@@ -67,10 +71,10 @@ export default function Perfil() {
         <h1>Perfil</h1>
         <StyledProfileImg src={ImgPerfil} alt="foto de perfil" />
         <StyledInput
-          placeholder="Nome"
+          placeholder="Name"
           type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <StyledInput
           placeholder="Username"
@@ -86,15 +90,23 @@ export default function Perfil() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <StyledInput
-          placeholder="Senha"
+          placeholder="Password"
           type="text"
           id="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <StyledButton type="submit">Salvar</StyledButton>
 
         <StyledButton onClick={handleSair}>Sair</StyledButton>
+
+        {isAdmin ? (
+          <StyledLink to="/lista-de-jogos">
+            <StyledButton>Lista de jogos</StyledButton>
+          </StyledLink>
+        ) : (
+          <div></div>
+        )}
       </StyledForm>
     </StyledContainer>
   );
