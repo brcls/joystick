@@ -7,10 +7,12 @@ import {
   StyledTitulo,
   StyledFlex,
   StyledRoundButton,
+  StyledLink,
 } from "../styles";
 import styled from "styled-components";
 import ImgJogo from "../assets/jogo.jpeg";
 import { GiCancel } from "react-icons/gi";
+import { FaEdit } from "react-icons/fa";
 import api from "../services/api";
 
 const StyledButtonCart = styled(StyledRoundButton)`
@@ -54,6 +56,11 @@ export default function ItemListaDeJogos(props) {
       <StyledButtonCart onClick={handleRemoveItem}>
         <GiCancel />
       </StyledButtonCart>
+      <StyledLink to={`/editar-jogo/${props.id}`}>
+        <StyledButtonCart>
+          <FaEdit />
+        </StyledButtonCart>
+      </StyledLink>
     </StyledFlex2>
   );
 }

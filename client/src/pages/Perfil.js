@@ -6,6 +6,7 @@ import {
   StyledForm,
   StyledProfileImg,
   StyledButton,
+  StyledLink,
 } from "../styles";
 import api from "../services/api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,6 +18,8 @@ export default function Perfil() {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  const [isAdmin, setIsAdmin] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +30,7 @@ export default function Perfil() {
         setUsername(data.username);
         setEmail(data.email);
         setSenha(data.senha);
+        setIsAdmin(data.isAdmin);
       })
       .catch((error) => {
         alert(error);
@@ -95,6 +99,14 @@ export default function Perfil() {
         <StyledButton type="submit">Salvar</StyledButton>
 
         <StyledButton onClick={handleSair}>Sair</StyledButton>
+
+        {isAdmin ? (
+          <StyledLink to="/lista-de-jogos">
+            <StyledButton>Lista de jogos</StyledButton>
+          </StyledLink>
+        ) : (
+          <div></div>
+        )}
       </StyledForm>
     </StyledContainer>
   );
