@@ -29,7 +29,7 @@ The system must be responsive and aims at good accessibility and usability for i
 Pleisteixu is an online store who sells digital games. Implemented with HTML, CSS, JavaScript, React (with styled components), MongoDB and Node.
 
 Navigation Diagram:
-![Diagrama](https://github.com/brcls/web-project/blob/main/mockup/Blank%20diagram%20(2).png)
+![Diagrama](https://github.com/brcls/web-project/blob/main/mockup/Blank%20diagram%20(3).png)
 
 ## Functionalities
 
@@ -39,6 +39,7 @@ The functionalities who will be presented in the website are:
 * Access to the homepage, with viewing of some games selected by the store;
 * Viewing the administrator's page, with the possibility of manage the games and users of the store;
 * Acces to the cart, with the possibility of remove games, check the total price and finalize purchase.
+* Extra functionality: a recommendation of games based in the genres that the user likes more. 
 
 ## Server
 
@@ -74,11 +75,12 @@ The results were very positive and fast, we had just a few problems with authent
 # 6 - Build Procedures
 To run this code, you need to have npm and node.js installed. You can also follow these steps:
 * 1 - Download these repository (`git clone repoURL`)
-* 2 - Enter in the client folter (`cd client`) 
-* 3 - Run `npm install`
-* 4 - Run `json-server —watch db.json`
+* 2 - Enter in the server folder (`cd server`)
+* 4 - Run `npm install`
 * 5 - Run `npm start`
-* 6 - After running `npm start`, in the same terminal press "y" to change gate
+* 6 - Enter in the client folder now (first (`cd ..`) then (`cd client`)
+* 7 - Run `npm install`
+* 9 - Run `npm start`
 
 # 7 - Problems
 We had some difficulty in the authentication part of the development, and also because of the short time to do the project.
