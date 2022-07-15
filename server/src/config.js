@@ -1,8 +1,8 @@
-global.SALT_KEY = 'f5b99242-6504-4ca3-90f2-05e78e5761ef';
-global.EMAIL_TMPL = 'Olá, <strong>{0}</strong>, seja bem vindo à Node Store!';
+global.SALT_KEY = "canalhas";
 
 module.exports = {
-    connectionString: 'mongodb://balta:balta@ds032340.mlab.com:32340/ndstr',
-    sendgridKey: 'SUA CHAVE',
-    containerConnectionString: 'SUA CONNECTION STRING'
-}
+  connectionString:
+    "mongodb+srv://brcls:rzungN5oDWjncVzh@cluster0.8spc0.mongodb.net/?retryWrites=true",
+  sendgridKey: "SUA CHAVE",
+  containerConnectionString: "SUA CONNECTION STRING",
+};
