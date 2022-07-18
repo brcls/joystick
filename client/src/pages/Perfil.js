@@ -13,15 +13,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import ImgPerfil from "../assets/perfil.jpg";
 
 export default function Perfil() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
   const [newUser, setNewUser] = useState({});
+  const token = sessionStorage.getItem("token");
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const config = {
       headers: {
-        "x-access-token": sessionStorage.getItem("token"),
+        "x-access-token": token,
       },
     };
     api
@@ -39,9 +40,9 @@ export default function Perfil() {
 
     api
       .put(`http://localhost:3000/users`, {
+        ...newUser,
         headers: {
-          "x-access-token": sessionStorage.getItem("token"),
-          data: newUser,
+          "x-access-token": token,
         },
       })
       .then(() => {
@@ -68,28 +69,27 @@ export default function Perfil() {
         <StyledInput
           placeholder="Name"
           type="text"
-          value={user.name}
-          onChange={(e) => setNewUser(...user, { name: e.target.value })}
+          defaultValue={user.name}
+          onChange={(e) => setNewUser({ ...user, name: e.target.value })}
         />
         <StyledInput
           placeholder="Username"
           type="text"
-          value={user.username}
-          onChange={(e) => setNewUser(...user, { username: e.target.value })}
+          defaultValue={user.username}
+          onChange={(e) => setNewUser({ ...user, username: e.target.value })}
         />
         <StyledInput
           placeholder="E-mail"
           type="email"
           id="email"
-          value={user.email}
-          onChange={(e) => setNewUser(...user, { email: e.target.value })}
+          defaultValue={user.email}
+          onChange={(e) => setNewUser({ ...user, email: e.target.value })}
         />
         <StyledInput
           placeholder="Password"
           type="text"
           id="password"
-          value={user.password}
-          onChange={(e) => setNewUser(...user, { password: e.target.value })}
+          onChange={(e) => setNewUser({ ...user, password: e.target.value })}
         />
         <StyledButton type="submit">Salvar</StyledButton>
 

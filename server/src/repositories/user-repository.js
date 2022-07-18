@@ -19,3 +19,17 @@ exports.authenticate = async (data) => {
   });
   return res;
 };
+
+exports.update = async (id, data) => {
+  await User.findByIdAndUpdate(id, {
+    $set: data,
+  });
+};
+
+exports.updateCart = async (id, data) => {
+  console.log(id, data);
+  const res = await User.findByIdAndUpdate(id, {
+    $push: { cart: data },
+  });
+  return res;
+};

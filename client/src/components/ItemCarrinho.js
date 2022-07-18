@@ -25,10 +25,6 @@ const StyledFlex2 = styled(StyledFlex)`
 export default function ItemCarrinho(props) {
   const { carrinho, setCarrinho } = React.useContext(AuthContext);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(carrinho));
-  }, []);
-
   function handleRemoveItem(e) {
     e.preventDefault();
 

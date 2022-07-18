@@ -7,8 +7,10 @@ const authService = require("../services/auth-service");
 
 router.post("/", controller.post);
 router.get("/", controller.get);
+router.get("/:cart", controller.getCart);
 router.post("/authenticate", controller.authenticate);
 router.post("/refresh-token", authService.authorize, controller.refreshToken);
-router.post("/:game", authService.authorize, controller.putGame);
+router.put("/:game", authService.authorize, controller.putGame);
+router.put("/", authService.authorize, controller.update);
 
 module.exports = router;

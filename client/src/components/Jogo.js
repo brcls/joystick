@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledJogo,
   StyledConteudo,
@@ -9,34 +9,30 @@ import {
 
 import ImgJogo from "../assets/jogo.jpeg";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../providers/auth";
+import api from "../services/api";
 
 export default function Jogo(props) {
-  const token = sessionStorage.getItem("id");
-  const { carrinho, setCarrinho } = React.useContext(AuthContext);
+  const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(carrinho));
-  }, [carrinho]);
 
   function handleComprarJogo(e) {
     e.preventDefault();
 
-    const jogo = {
-      title: props.title,
-      description: props.description,
-      price: props.price,
-      genders: props.genders,
-      carousel: props.carousel,
-      best: props.best,
-      new: props.new,
-      _id: parseInt(props._id, 10),
+    const config = {
+      headers: {
+        "x-access-token": token,
+      },
     };
 
-    setCarrinho([...carrinho, { ...jogo }]);
-    localStorage.setItem("cart", JSON.stringify(carrinho));
-    navigate(`/carrinho/${token}`);
+    api({
+      method: "put",
+      url: `http://localhost:3000/users/${props._id}`,
+      headers: {
+        "x-access-token": token,
+      },
+    }).then(() => {
+      navigate("/carrinho");
+    });
   }
   return (
     <StyledJogo>
