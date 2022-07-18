@@ -11,26 +11,14 @@ import {
 } from "../styles";
 
 export default function Cadastro() {
-  const [name, setName] = useState();
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   function handleNovoUsuario(e) {
     e.preventDefault();
 
-    const data = {
-      name,
-      username,
-      email,
-      password,
-      games: [],
-      isAdmin: false,
-    };
-
     api
-      .post("http://localhost:3000/users", data)
+      .post("http://localhost:3000/users", user)
       .then(() => {
         navigate("/");
       })
@@ -48,29 +36,25 @@ export default function Cadastro() {
           required
           placeholder="Name"
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
         />
         <StyledInput
           required
           placeholder="Username"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
         />
         <StyledInput
           required
           placeholder="E-mail"
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <StyledInput
           required
           placeholder="Password"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
         <StyledButton type="submit">Cadastro</StyledButton>
         <p>Já possui cadastro?</p>

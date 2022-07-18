@@ -30,6 +30,12 @@ const schema = new Schema({
     required: true,
     default: false,
   },
+  cart: [
+    {
+      type: String,
+      required: false,
+    },
+  ],
   games: [
     {
       type: Number,

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemCarrinho from "../components/ItemCarrinho";
@@ -14,58 +14,70 @@ import api from "../services/api";
 import { AuthContext } from "../providers/auth";
 
 export default function Carrinho() {
-  const { id } = useParams();
-  const { carrinho, setCarrinho } = React.useContext(AuthContext);
+  const [carrinho, setCarrinho] = useState([]);
+  const [jogos, setJogos] = useState([]);
   const navigate = useNavigate();
-  let jogosUser = [];
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(carrinho));
-
-    api
-      .get(`http://localhost:3000/users/?id=${id}`)
-      .then(({ data }) => {
-        jogosUser = data.games.slice();
+    if (carrinho !== [])
+      api({
+        method: "get",
+        url: `http://localhost:3000/users/cart`,
+        headers: {
+          "x-access-token": sessionStorage.getItem("token"),
+        },
       })
-      .catch((error) => {
-        alert(error);
-      });
+        .then((data) => {
+          setCarrinho(data.data);
+        })
+        .catch((erro) => {
+          alert(erro);
+        });
   }, []);
 
-  function handleEsvaziar(e) {
-    e.preventDefault();
+  useEffect(() => {
+    carrinho.map((id) => {
+      console.log(id);
+      api({
+        method: "get",
+        url: `http://localhost:3000/games/${id}`,
+      })
+        .then((data) => {
+          setJogos((oldArray) => [...oldArray, data.data]);
+        })
+        .catch((erro) => {
+          alert(erro);
+        });
+    });
+  }, [carrinho]);
 
-    setCarrinho([]);
-    localStorage.setItem("cart", JSON.stringify(carrinho));
+  function handleEsvaziar(e) {
+    // e.preventDefault();
+    // setCarrinho([]);
+    // localStorage.setItem("cart", JSON.stringify(carrinho));
   }
 
   function handleFinalizar(e) {
-    e.preventDefault();
-
-    carrinho.map((jogo) => jogosUser.push(jogo._id));
-
-    const data = {
-      games: jogosUser,
-    };
-
-    api
-      .patch(`http://localhost:3000/users/?id=${id}`, data)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        alert(error);
-      });
-
-    setCarrinho([]);
-    localStorage.setItem("cart", JSON.stringify(carrinho));
+    // e.preventDefault();
+    // carrinho.map((jogo) => jogosUser.push(jogo._id));
+    // const data = {
+    //   games: jogosUser,
+    // };
+    // api
+    //   .patch(`http://localhost:3000/games/id=${id}`, data)
+    //   .then(() => {
+    //     navigate("/");
+    //   })
+    //   .catch((error) => {
+    //     alert(error);
+    //   });
+    // setCarrinho([]);
+    // localStorage.setItem("cart", JSON.stringify(carrinho));
   }
 
   function handleCalcTotal() {
     let total = 0;
-
-    carrinho.map((jogo) => (total += jogo.price));
-    console.log(total);
+    jogos.map((jogo) => (total += jogo.price));
 
     return total;
   }
@@ -75,13 +87,14 @@ export default function Carrinho() {
       <Cabecalho />
       <StyledTitulo margem>Carrinho</StyledTitulo>
       <StyledList>
-        {carrinho.map((jogo) => (
+        {console.log(jogos)}
+        {jogos.map((item) => (
           <ItemCarrinho
-            key={jogo._id}
-            _id={jogo._id}
-            name={jogo.name}
-            genders={jogo.genders}
-            price={jogo.price}
+            key={item._id}
+            _id={item._id}
+            title={item.title}
+            genders={item.genders}
+            price={item.price}
           />
         ))}
       </StyledList>
