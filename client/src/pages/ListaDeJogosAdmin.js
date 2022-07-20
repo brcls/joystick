@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Cabecalho from "../components/Cabecalho";
-import ItemCarrinho from "../components/ItemCarrinho";
-import {
-  StyledTitulo,
-  StyledList,
-  StyledContainer,
-  MarginVert,
-} from "../styles";
-import api from "../services/api";
 import ItemListaDeJogos from "../components/ItemListaDeJogos";
+import api, { atualizarToken } from "../services/api";
+import { MarginVert, StyledButton, StyledContainer, StyledLink, StyledList, StyledTitulo } from "../styles";
 
 export default function ListaDeJogosAdmin() {
   const [jogos, setJogos] = useState([]);
   useEffect(() => {
+    atualizarToken();
     api
       .get("http://localhost:3000/games")
       .then(({ data }) => {
@@ -21,18 +16,21 @@ export default function ListaDeJogosAdmin() {
       .catch((error) => {
         alert(error);
       });
-  }, [jogos]);
+  }, []);
 
   return (
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Jogos da loja</StyledTitulo>
+      <StyledLink to="/cadastrar-jogo">
+        <StyledButton>Adicionar jogo</StyledButton>
+      </StyledLink>
       <StyledList>
         {jogos.map((jogo) => (
           <ItemListaDeJogos
             key={jogo._id}
             _id={jogo._id}
-            name={jogo.name}
+            title={jogo.title}
             genders={jogo.genders}
             price={jogo.price}
             description={jogo.description}

@@ -28,8 +28,8 @@ exports.getById = async (req, res, next) => {
 exports.post = async (req, res, next) => {
   try {
     await repository.create({
+      id: Math.random(),
       title: req.body.title,
-      id: req.body.id,
       description: req.body.description,
       price: req.body.price,
       genders: req.body.genders,
@@ -42,7 +42,7 @@ exports.post = async (req, res, next) => {
     });
   } catch (e) {
     res.status(500).send({
-      message: "Falha ao processar sua requisição",
+      message: e,
     });
   }
 };

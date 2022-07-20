@@ -1,67 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemBiblioteca from "../components/ItemBiblioteca";
-import {
-  StyledTitulo,
-  StyledList,
-  StyledContainer,
-  MarginVert,
-} from "../styles";
-import api from "../services/api";
+import api, { atualizarToken } from "../services/api";
+import { MarginVert, StyledContainer, StyledList, StyledTitulo } from "../styles";
 
 export default function Biblioteca() {
-  const { id } = useParams();
-  const [biblioteca, setBiblioteca] = useState([]);
+  const [library, setLibrary] = useState([]);
   const [jogos, setJogos] = useState([]);
-  const [usuario, setUsuario] = useState({});
+
+  const [lastGame, setLastGame] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    api
-      .get(`http://localhost:3000/users/?id=${id}`)
-      .then(({ data }) => {
-        setUsuario(data);
+    atualizarToken();
+    api({
+      method: "get",
+      url: `http://localhost:3000/users/library`,
+      headers: {
+        "x-access-token": sessionStorage.getItem("token"),
+      },
+    })
+      .then((data) => {
+        if (library.length === 0) setLibrary(data.data);
       })
-      .catch((error) => {
-        alert(error);
+      .catch((erro) => {
+        alert(erro);
       });
+  }, []);
 
-    api
-      .get("http://localhost:3000/games")
-      .then(({ data }) => {
-        setJogos(data);
+  useEffect(() => {
+    library.map((id) => {
+      setLastGame(id);
+      api({
+        method: "get",
+        url: `http://localhost:3000/games/${id}`,
       })
-      .catch((error) => {
-        alert(error);
-      });
-
-    if (usuario.games) {
-      for (var i = 0; i < usuario.games.length; i++) {
-        const auxiliar = jogos.find((jogo) => jogo._id === usuario.games[i]);
-
-        if (auxiliar && !biblioteca.find((item) => item._id === auxiliar._id)) {
-          setBiblioteca([...biblioteca, { ...auxiliar }]);
-        }
-      }
-    }
-  }, [usuario]);
+        .then((data) => {
+          if (lastGame !== id) setJogos((oldArray) => [...oldArray, data.data]);
+        })
+        .catch((erro) => {
+          alert(erro);
+        });
+    });
+  }, [library]);
 
   return (
     <StyledContainer>
       <Cabecalho />
       <StyledTitulo margem>Biblioteca</StyledTitulo>
       <StyledList>
-        {biblioteca.map((jogo) => (
-          <ItemBiblioteca
-            key={jogo._id}
-            _id={jogo._id}
-            title={jogo.title}
-            genders={jogo.genders}
-            price={jogo.price}
-            description={jogo.description}
-          />
+        {jogos.map((item) => (
+          <ItemBiblioteca key={item._id} _id={item._id} title={item.title} genders={item.genders} price={item.price} />
         ))}
       </StyledList>
+
       <MarginVert></MarginVert>
     </StyledContainer>
   );

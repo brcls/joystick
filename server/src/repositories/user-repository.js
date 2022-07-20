@@ -7,6 +7,11 @@ exports.get = async () => {
   return res;
 };
 
+exports.getById = async (id) => {
+  const res = await User.findById(id);
+  return res;
+};
+
 exports.create = async (data) => {
   var user = new User(data);
   await user.save();
@@ -26,10 +31,23 @@ exports.update = async (id, data) => {
   });
 };
 
-exports.updateCart = async (id, data) => {
-  console.log(id, data);
+exports.insertGame = async (id, data) => {
   const res = await User.findByIdAndUpdate(id, {
     $push: { cart: data },
+  });
+  return res;
+};
+
+exports.updateCart = async (id, data) => {
+  const res = await User.findByIdAndUpdate(id, {
+    $set: { cart: data },
+  });
+  return res;
+};
+
+exports.buyGame = async (id, data) => {
+  const res = await User.findByIdAndUpdate(id, {
+    $push: { games: { $each: data } },
   });
   return res;
 };
