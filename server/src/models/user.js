@@ -38,7 +38,7 @@ const schema = new Schema({
   ],
   games: [
     {
-      type: Number,
+      type: String,
       required: false,
     },
   ],

@@ -65,8 +65,7 @@ exports.authenticate = async (req, res, next) => {
 
 exports.refreshToken = async (req, res, next) => {
   try {
-    const token =
-      req.body.token || req.query.token || req.headers["x-access-token"];
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
 
     const user = await repository.getById(data.id);
@@ -97,15 +96,14 @@ exports.refreshToken = async (req, res, next) => {
     });
   } catch (e) {
     res.status(500).send({
-      message: "Falha ao processar sua requisição",
+      message: e,
     });
   }
 };
 
 exports.get = async (req, res, next) => {
   try {
-    const token =
-      req.body.token || req.query.token || req.headers["x-access-token"];
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     res.status(200).send(data);
   } catch (e) {
@@ -117,8 +115,7 @@ exports.get = async (req, res, next) => {
 
 exports.getCart = async (req, res, next) => {
   try {
-    const token =
-      req.body.token || req.query.token || req.headers["x-access-token"];
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     res.status(200).send(data.cart);
   } catch (e) {
@@ -128,12 +125,41 @@ exports.getCart = async (req, res, next) => {
   }
 };
 
+exports.getLibrary = async (req, res, next) => {
+  try {
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const data = await authService.decodeToken(token);
+    res.status(200).send(data.games);
+  } catch (e) {
+    res.status(500).send({
+      message: e,
+    });
+  }
+};
+
+exports.update = async (req, res, next) => {
+  try {
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const data = await authService.decodeToken(token);
+    let body = req.body;
+    req.body.password && (body.password = md5(req.body.password + global.SALT_KEY));
+    repository.update(data.id, body);
+
+    res.status(200).send({
+      message: "Usuário atualizado com sucesso!",
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: e,
+    });
+  }
+};
+
 exports.putGame = async (req, res, next) => {
   try {
-    const token =
-      req.body.token || req.query.token || req.headers["x-access-token"];
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
-    repository.updateCart(data.id, req.params.game);
+    repository.insertGame(data.id, req.params.game);
 
     res.status(200).send({
       message: "Jogo adicionado com sucesso!",
@@ -145,15 +171,52 @@ exports.putGame = async (req, res, next) => {
   }
 };
 
-exports.update = async (req, res, next) => {
+exports.deleteGame = async (req, res, next) => {
   try {
-    const token =
-      req.body.token || req.query.token || req.headers["x-access-token"];
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
-    repository.update(data.id, req.body);
+    let cart = data.cart;
+    cart = cart.filter((value) => {
+      return value != req.params.game;
+    });
+    repository.updateCart(data.id, cart);
+
+    this.refreshToken(req, res, next);
+    res.status(200).send({
+      message: "Jogo removido com sucesso!",
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: e,
+    });
+  }
+};
+
+exports.cleanCart = async (req, res, next) => {
+  try {
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const data = await authService.decodeToken(token);
+    repository.updateCart(data.id, []);
 
     res.status(200).send({
-      message: "Usuário atualizado com sucesso!",
+      message: "Carrinho limpo!",
+    });
+  } catch (e) {
+    res.status(500).send({
+      message: e,
+    });
+  }
+};
+
+exports.finish = async (req, res, next) => {
+  try {
+    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const data = await authService.decodeToken(token);
+    console.log(data);
+    repository.buyGame(data.id, data.cart);
+    repository.updateCart(data.id, []);
+    res.status(200).send({
+      message: "Compra finalizada com sucesso!",
     });
   } catch (e) {
     res.status(500).send({

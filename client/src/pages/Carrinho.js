@@ -1,49 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemCarrinho from "../components/ItemCarrinho";
-import {
-  StyledTitulo,
-  StyledList,
-  StyledContainer,
-  StyledButton,
-  StyledFlex,
-  MarginVert,
-} from "../styles";
-import api from "../services/api";
-import { AuthContext } from "../providers/auth";
+import api, { atualizarToken } from "../services/api";
+import { MarginVert, StyledButton, StyledContainer, StyledFlex, StyledList, StyledTitulo } from "../styles";
 
 export default function Carrinho() {
   const [carrinho, setCarrinho] = useState([]);
   const [jogos, setJogos] = useState([]);
+  const [lastGame, setLastGame] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (carrinho !== [])
-      api({
-        method: "get",
-        url: `http://localhost:3000/users/cart`,
-        headers: {
-          "x-access-token": sessionStorage.getItem("token"),
-        },
+    atualizarToken();
+
+    api({
+      method: "get",
+      url: `http://localhost:3000/users/cart`,
+      headers: {
+        "x-access-token": sessionStorage.getItem("token"),
+      },
+    })
+      .then((data) => {
+        if (carrinho.length === 0) setCarrinho(data.data);
       })
-        .then((data) => {
-          setCarrinho(data.data);
-        })
-        .catch((erro) => {
-          alert(erro);
-        });
+      .catch((erro) => {
+        alert(erro);
+      });
   }, []);
 
   useEffect(() => {
     carrinho.map((id) => {
-      console.log(id);
+      setLastGame(id);
       api({
         method: "get",
         url: `http://localhost:3000/games/${id}`,
       })
         .then((data) => {
-          setJogos((oldArray) => [...oldArray, data.data]);
+          if (lastGame !== id) setJogos((oldArray) => [...oldArray, data.data]);
         })
         .catch((erro) => {
           alert(erro);
@@ -52,27 +47,40 @@ export default function Carrinho() {
   }, [carrinho]);
 
   function handleEsvaziar(e) {
-    // e.preventDefault();
-    // setCarrinho([]);
-    // localStorage.setItem("cart", JSON.stringify(carrinho));
+    e.preventDefault();
+    api
+      .delete(`http://localhost:3000/users/cart`, {
+        headers: {
+          "x-access-token": sessionStorage.getItem("token"),
+        },
+      })
+      .then(() => {
+        atualizarToken();
+        alert("Jogos deletados");
+        navigate(0);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }
 
   function handleFinalizar(e) {
-    // e.preventDefault();
-    // carrinho.map((jogo) => jogosUser.push(jogo._id));
-    // const data = {
-    //   games: jogosUser,
-    // };
-    // api
-    //   .patch(`http://localhost:3000/games/id=${id}`, data)
-    //   .then(() => {
-    //     navigate("/");
-    //   })
-    //   .catch((error) => {
-    //     alert(error);
-    //   });
-    // setCarrinho([]);
-    // localStorage.setItem("cart", JSON.stringify(carrinho));
+    e.preventDefault();
+    api({
+      method: "post",
+      url: `http://localhost:3000/users/finish`,
+      headers: {
+        "x-access-token": sessionStorage.getItem("token"),
+      },
+    })
+      .then(() => {
+        atualizarToken();
+        alert("Compra finalizada");
+        navigate("/biblioteca");
+      })
+      .catch((erro) => {
+        alert(erro);
+      });
   }
 
   function handleCalcTotal() {
@@ -87,15 +95,8 @@ export default function Carrinho() {
       <Cabecalho />
       <StyledTitulo margem>Carrinho</StyledTitulo>
       <StyledList>
-        {console.log(jogos)}
         {jogos.map((item) => (
-          <ItemCarrinho
-            key={item._id}
-            _id={item._id}
-            title={item.title}
-            genders={item.genders}
-            price={item.price}
-          />
+          <ItemCarrinho key={item._id} _id={item._id} title={item.title} genders={item.genders} price={item.price} />
         ))}
       </StyledList>
       <StyledTitulo margem>Sub-total: R${handleCalcTotal()}</StyledTitulo>

@@ -1,32 +1,24 @@
 import React, { useEffect, useState } from "react";
-import Cabecalho from "../components/Cabecalho";
-import {
-  StyledInput,
-  StyledContainer,
-  StyledForm,
-  StyledProfileImg,
-  StyledButton,
-  StyledLink,
-} from "../styles";
-import api from "../services/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ImgPerfil from "../assets/perfil.jpg";
+import Cabecalho from "../components/Cabecalho";
+import api, { atualizarToken } from "../services/api";
+import { StyledButton, StyledContainer, StyledForm, StyledInput, StyledLink, StyledProfileImg } from "../styles";
 
 export default function Perfil() {
   const [user, setUser] = useState({});
   const [newUser, setNewUser] = useState({});
-  const token = sessionStorage.getItem("token");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const config = {
-      headers: {
-        "x-access-token": token,
-      },
-    };
+    atualizarToken();
     api
-      .get(`http://localhost:3000/users`, config)
+      .get(`http://localhost:3000/users`, {
+        headers: {
+          "x-access-token": sessionStorage.getItem("token"),
+        },
+      })
       .then(({ data }) => {
         setUser(data);
       })
@@ -38,18 +30,20 @@ export default function Perfil() {
   function handleAtualizarUser(e) {
     e.preventDefault();
 
-    api
-      .put(`http://localhost:3000/users`, {
-        ...newUser,
-        headers: {
-          "x-access-token": token,
-        },
-      })
+    api({
+      method: "put",
+      url: `http://localhost:3000/users`,
+      headers: {
+        "x-access-token": sessionStorage.getItem("token"),
+      },
+      data: newUser,
+    })
       .then(() => {
-        navigate("/");
+        atualizarToken();
+        alert("Informações editadas");
       })
-      .catch((error) => {
-        alert(error);
+      .catch((erro) => {
+        alert(erro);
       });
   }
 
@@ -70,26 +64,26 @@ export default function Perfil() {
           placeholder="Name"
           type="text"
           defaultValue={user.name}
-          onChange={(e) => setNewUser({ ...user, name: e.target.value })}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
         />
         <StyledInput
           placeholder="Username"
           type="text"
           defaultValue={user.username}
-          onChange={(e) => setNewUser({ ...user, username: e.target.value })}
+          onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
         />
         <StyledInput
           placeholder="E-mail"
           type="email"
           id="email"
           defaultValue={user.email}
-          onChange={(e) => setNewUser({ ...user, email: e.target.value })}
+          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
         />
         <StyledInput
           placeholder="Password"
           type="text"
           id="password"
-          onChange={(e) => setNewUser({ ...user, password: e.target.value })}
+          onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
         />
         <StyledButton type="submit">Salvar</StyledButton>
 

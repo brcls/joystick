@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
-import {
-  StyledCardGame,
-  StyledConteudo,
-  StyledGeneros,
-  StyledCategoria,
-  StyledTitulo,
-  StyledFlex,
-  StyledRoundButton,
-  StyledLink,
-} from "../styles";
+import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ImgJogo from "../assets/jogo.jpeg";
-import { GiCancel } from "react-icons/gi";
-import { FaEdit } from "react-icons/fa";
 import api from "../services/api";
+import {
+  StyledCardGame,
+  StyledCategoria,
+  StyledConteudo,
+  StyledFlex,
+  StyledGeneros,
+  StyledLink,
+  StyledRoundButton,
+  StyledTitulo,
+} from "../styles";
 
 const StyledButtonCart = styled(StyledRoundButton)`
   margin-right: 50px;
@@ -25,10 +26,20 @@ const StyledFlex2 = styled(StyledFlex)`
 `;
 
 export default function ItemListaDeJogos(props) {
+  const navigate = useNavigate();
+
   function handleRemoveItem(e) {
     e.preventDefault();
     api
-      .delete(`http://localhost:3000/jogos/?id=${props._id}`)
+      .delete(`http://localhost:3000/games/admin/${props._id}`, {
+        headers: {
+          "x-access-token": sessionStorage.getItem("token"),
+        },
+      })
+      .then(() => {
+        alert("Jogo deletado!");
+        navigate(0);
+      })
       .catch((error) => {
         alert(error);
       });
@@ -41,19 +52,13 @@ export default function ItemListaDeJogos(props) {
         <StyledConteudo>
           <h1>{props.title}</h1>
           <StyledGeneros>
-            <StyledCategoria>
-              {props.genders[0] ? props.genders[0] : "teste"}
-            </StyledCategoria>
-            <StyledCategoria>
-              {props.genders[1] ? props.genders[1] : "teste"}
-            </StyledCategoria>
-            <StyledCategoria>
-              {props.genders[2] ? props.genders[2] : "teste"}
-            </StyledCategoria>
+            <StyledCategoria>{props.genders[0] ? props.genders[0] : "teste"}</StyledCategoria>
+            <StyledCategoria>{props.genders[1] ? props.genders[1] : "teste"}</StyledCategoria>
+            <StyledCategoria>{props.genders[2] ? props.genders[2] : "teste"}</StyledCategoria>
           </StyledGeneros>
-          <StyledTitulo>{props.preco}</StyledTitulo>
+          <StyledTitulo>{props.price}</StyledTitulo>
         </StyledConteudo>
-        <p>{props.decription}</p>
+        <p>{props.description}</p>
       </StyledCardGame>
       <StyledButtonCart onClick={handleRemoveItem}>
         <GiCancel />

@@ -29,7 +29,7 @@ The system must be responsive and aims at good accessibility and usability for i
 Pleisteixu is an online store who sells digital games. Implemented with HTML, CSS, JavaScript, React (with styled components), MongoDB and Node.
 
 Navigation Diagram:
-![Diagrama](https://github.com/brcls/web-project/blob/main/mockup/Blank%20diagram%20(2).png)
+![Diagrama](https://github.com/brcls/web-project/blob/main/mockup/Blank%20diagram%20(3).png)
 
 ## Functionalities
 
@@ -39,6 +39,7 @@ The functionalities who will be presented in the website are:
 * Access to the homepage, with viewing of some games selected by the store;
 * Viewing the administrator's page, with the possibility of manage the games and users of the store;
 * Acces to the cart, with the possibility of remove games, check the total price and finalize purchase.
+* Extra functionality: a recommendation of games based in the genres that the user likes more. 
 
 ## Server
 
@@ -63,22 +64,29 @@ The information stored on the server are:
 * Image's identifier
 
 # 3 - Comments About the Code
-Nothing for now.
+There are no many comments, just in some specific points like why we decided to use something or explaining the meaning of something. 
 
 # 4 - Test Plan
-We pretent to test the main funcionalities, like sign in, sign up and purhcase.
+We tested in different browsers like Microsoft Edge, Google Chrome and Mozilla Firefox, with different types of interactions.  
 
 # 5 - Test Results
-Nothing for now.
+The results were very positive and fast, we had just a few problems with authentication, but we  are working on it.  
 
 # 6 - Build Procedures
-In this first milestone, you just need to download the .zip from this repository and open the HTML pages.
+To run this code, you need to have npm and node.js installed. You can also follow these steps:
+* 1 - Download these repository (`git clone repoURL`)
+* 2 - Enter in the server folder (`cd server`)
+* 4 - Run `npm install`
+* 5 - Run `npm start`
+* 6 - Enter in the client folder now (first (`cd ..`) then (`cd client`)
+* 7 - Run `npm install`
+* 9 - Run `npm start`
 
 # 7 - Problems
-Nothing for now.
+We had some difficulty in the authentication part of the development, and also because of the short time to do the project.
 
 # 8 - Comments
-Nothing for now.
+The project is not in his final version, so there are some unfinished things that we want to adjust and fix to the next milestone. The important point  is that we are learning with ours mistakes to build something better.
 
 # 9 - Figma
 Here is the link of the figma. 
