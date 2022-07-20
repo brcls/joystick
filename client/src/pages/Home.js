@@ -54,6 +54,7 @@ export default function Home() {
                   title={jogo.title}
                   genders={jogo.genders}
                   description={jogo.description}
+                  price={jogo.price}
                 />
               </Carousel.Item>
             ))}
@@ -71,6 +72,7 @@ export default function Home() {
             title={jogo.title}
             genders={jogo.genders}
             description={jogo.description}
+            price={jogo.price}
           />
         ))}
       </StyledList>

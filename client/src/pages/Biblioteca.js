@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemBiblioteca from "../components/ItemBiblioteca";
 import api, { atualizarToken } from "../services/api";
-import { MarginVert, StyledContainer, StyledList, StyledTitulo } from "../styles";
+import {
+  MarginVert,
+  StyledContainer,
+  StyledList,
+  StyledTitulo,
+} from "../styles";
 
 export default function Biblioteca() {
   const [library, setLibrary] = useState([]);
@@ -52,7 +57,14 @@ export default function Biblioteca() {
       <StyledTitulo margem>Biblioteca</StyledTitulo>
       <StyledList>
         {jogos.map((item) => (
-          <ItemBiblioteca key={item._id} _id={item._id} title={item.title} genders={item.genders} price={item.price} />
+          <ItemBiblioteca
+            key={item._id}
+            _id={item._id}
+            title={item.title}
+            genders={item.genders}
+            price={item.price}
+            description={item.description}
+          />
         ))}
       </StyledList>
 

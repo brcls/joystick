@@ -49,9 +49,10 @@ export default function Explorar() {
             <Carousel.Item key={jogo._id}>
               <Destaques
                 _id={jogo._id}
-                name={jogo.name}
+                title={jogo.title}
                 genders={jogo.genders}
                 description={jogo.description}
+                price={jogo.price}
               />
             </Carousel.Item>
           ))}
@@ -66,9 +67,10 @@ export default function Explorar() {
                 <CardJogo
                   key={jogo._id}
                   _id={jogo._id}
-                  name={jogo.name}
+                  title={jogo.title}
                   genders={jogo.genders}
                   description={jogo.description}
+                  price={jogo.price}
                 />
               ))}
           </StyledList>
@@ -83,9 +85,10 @@ export default function Explorar() {
                   <CardJogo
                     key={jogo._id}
                     _id={jogo._id}
-                    name={jogo.name}
+                    title={jogo.title}
                     genders={jogo.genders}
                     description={jogo.description}
+                    price={jogo.price}
                   />
                 </Carousel.Item>
               ))}
@@ -93,15 +96,16 @@ export default function Explorar() {
           <StyledTitulo margem>Jogos grátis</StyledTitulo>
           <Carousel>
             {jogos
-              .filter((jogo) => jogo.isFree === true)
+              .filter((jogo) => jogo.price === 0)
               .map((jogo) => (
                 <Carousel.Item key={jogo._id}>
                   <CardJogo
                     key={jogo._id}
                     _id={jogo._id}
-                    name={jogo.name}
+                    title={jogo.title}
                     genders={jogo.genders}
                     description={jogo.description}
+                    price={jogo.price}
                   />
                 </Carousel.Item>
               ))}

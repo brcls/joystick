@@ -34,6 +34,7 @@ export default function CardJogo(props) {
           <StyledCategoria> {props.genders[1]}</StyledCategoria>
           <StyledCategoria> {props.genders[2]}</StyledCategoria>
         </StyledGeneros>
+        <h1>R${props.price},00</h1>
         <StyledButton noMargin onClick={handleAbrirJogo}>
           Comprar
         </StyledButton>
