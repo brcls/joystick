@@ -56,7 +56,7 @@ export default function ItemListaDeJogos(props) {
             <StyledCategoria>{props.genders[1] ? props.genders[1] : "teste"}</StyledCategoria>
             <StyledCategoria>{props.genders[2] ? props.genders[2] : "teste"}</StyledCategoria>
           </StyledGeneros>
-          <StyledTitulo>{props.price}</StyledTitulo>
+          <StyledTitulo>R${props.price},00</StyledTitulo>
         </StyledConteudo>
         <p>{props.description}</p>
       </StyledCardGame>

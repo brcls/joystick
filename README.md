@@ -72,6 +72,7 @@ We tested in different browsers like Microsoft Edge, Google Chrome and Mozilla F
 # 5 - Test Results
 The results were very positive and fast.
 
+
 # 6 - Build Procedures
 To run this code, you need to have npm and node.js installed. You can also follow these steps:
 * 1 - Download these repository (`git clone repoURL`)
@@ -87,6 +88,7 @@ We had some difficulty in the authentication part of the development, and also b
 
 # 8 - Comments
 The project was big challenge for us, but we did it. 
+
 
 # 9 - Figma
 Here is the link of the figma. 

@@ -40,6 +40,7 @@ export default function Destaques(props) {
           <StyledCategoria> {props.genders[2]}</StyledCategoria>
         </StyledGeneros>
         <p>{props.description} </p>
+        <h1>R${props.price},00</h1>
         <StyledButton noMargin onClick={handleAbrirJogo}>
           Comprar
         </StyledButton>

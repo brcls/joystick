@@ -3,7 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Cabecalho from "../components/Cabecalho";
 import ItemCarrinho from "../components/ItemCarrinho";
 import api, { atualizarToken } from "../services/api";
-import { MarginVert, StyledButton, StyledContainer, StyledFlex, StyledList, StyledTitulo } from "../styles";
+import {
+  MarginVert,
+  StyledButton,
+  StyledContainer,
+  StyledFlex,
+  StyledLink,
+  StyledList,
+  StyledTitulo,
+} from "../styles";
 
 export default function Carrinho() {
   const [carrinho, setCarrinho] = useState([]);
@@ -101,9 +109,11 @@ export default function Carrinho() {
       </StyledList>
       <StyledTitulo margem>Sub-total: R${handleCalcTotal()}</StyledTitulo>
       <StyledFlex>
-        <StyledButton pequeno onClick={handleFinalizar}>
-          Finalizar compra
-        </StyledButton>
+        <StyledLink to={"/finalizar-compra"}>
+          <StyledButton pequeno onClick={handleFinalizar}>
+            Finalizar compra
+          </StyledButton>
+        </StyledLink>
         <StyledButton pequeno onClick={handleEsvaziar}>
           Esvaziar carrinho
         </StyledButton>
