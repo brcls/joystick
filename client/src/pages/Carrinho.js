@@ -104,13 +104,7 @@ export default function Carrinho() {
       <StyledTitulo margem>Carrinho</StyledTitulo>
       <StyledList>
         {jogos.map((item) => (
-          <ItemCarrinho
-            key={item._id}
-            _id={item._id}
-            title={item.title}
-            genders={item.genders}
-            price={item.price}
-          />
+          <ItemCarrinho key={item._id} _id={item._id} title={item.title} genders={item.genders} price={item.price} />
         ))}
       </StyledList>
       <StyledTitulo margem>Sub-total: R${handleCalcTotal()}</StyledTitulo>

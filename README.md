@@ -67,10 +67,11 @@ The information stored on the server are:
 There are no many comments, just in some specific points like why we decided to use something or explaining the meaning of something. 
 
 # 4 - Test Plan
-We tested in different browsers like Microsoft Edge, Google Chrome and Mozilla Firefox, with different types of interactions.  
+We tested in different browsers like Microsoft Edge, Google Chrome and Mozilla Firefox, with different types of interactions, based on a CRUD model.  
 
 # 5 - Test Results
-The results were very positive and fast, we had just a few problems with authentication, but we  are working on it.  
+The results were very positive and fast.
+
 
 # 6 - Build Procedures
 To run this code, you need to have npm and node.js installed. You can also follow these steps:
@@ -86,7 +87,8 @@ To run this code, you need to have npm and node.js installed. You can also follo
 We had some difficulty in the authentication part of the development, and also because of the short time to do the project.
 
 # 8 - Comments
-The project is not in his final version, so there are some unfinished things that we want to adjust and fix to the next milestone. The important point  is that we are learning with ours mistakes to build something better.
+The project was big challenge for us, but we did it. 
+
 
 # 9 - Figma
 Here is the link of the figma. 
