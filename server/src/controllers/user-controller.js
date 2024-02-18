@@ -5,6 +5,7 @@ const md5 = require("md5");
 const authService = require("../services/auth-service");
 
 exports.post = async (req, res, next) => {
+  console.log("Method Post User");
   try {
     await repository.create({
       id: Math.random() * 100,
@@ -26,6 +27,7 @@ exports.post = async (req, res, next) => {
 };
 
 exports.authenticate = async (req, res, next) => {
+  console.log("Method authenticate");
   try {
     const user = await repository.authenticate({
       email: req.body.email,
@@ -65,7 +67,8 @@ exports.authenticate = async (req, res, next) => {
 
 exports.refreshToken = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
 
     const user = await repository.getById(data.id);
@@ -102,8 +105,11 @@ exports.refreshToken = async (req, res, next) => {
 };
 
 exports.get = async (req, res, next) => {
+  console.log("Controller Get User");
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
+    console.log(token);
     const data = await authService.decodeToken(token);
     res.status(200).send(data);
   } catch (e) {
@@ -115,7 +121,8 @@ exports.get = async (req, res, next) => {
 
 exports.getCart = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     res.status(200).send(data.cart);
   } catch (e) {
@@ -127,7 +134,8 @@ exports.getCart = async (req, res, next) => {
 
 exports.getLibrary = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     res.status(200).send(data.games);
   } catch (e) {
@@ -139,10 +147,12 @@ exports.getLibrary = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     let body = req.body;
-    req.body.password && (body.password = md5(req.body.password + global.SALT_KEY));
+    req.body.password &&
+      (body.password = md5(req.body.password + global.SALT_KEY));
     repository.update(data.id, body);
 
     res.status(200).send({
@@ -157,7 +167,8 @@ exports.update = async (req, res, next) => {
 
 exports.putGame = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     repository.insertGame(data.id, req.params.game);
 
@@ -173,7 +184,8 @@ exports.putGame = async (req, res, next) => {
 
 exports.deleteGame = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     let cart = data.cart;
     cart = cart.filter((value) => {
@@ -194,7 +206,8 @@ exports.deleteGame = async (req, res, next) => {
 
 exports.cleanCart = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     repository.updateCart(data.id, []);
 
@@ -210,7 +223,8 @@ exports.cleanCart = async (req, res, next) => {
 
 exports.finish = async (req, res, next) => {
   try {
-    const token = req.body.token || req.query.token || req.headers["x-access-token"];
+    const token =
+      req.body.token || req.query.token || req.headers["x-access-token"];
     const data = await authService.decodeToken(token);
     console.log(data);
     repository.buyGame(data.id, data.cart);

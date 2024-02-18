@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 
 exports.get = async () => {
+  console.log("Repository Get User");
   const res = await User.find();
   return res;
 };

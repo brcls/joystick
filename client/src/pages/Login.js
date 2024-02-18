@@ -18,12 +18,16 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
+    console.log(email);
+    console.log(password);
+
     api
       .post(`http://localhost:3000/users/authenticate`, {
         email: email,
         password: password,
       })
       .then(({ data }) => {
+        console.log(data);
         sessionStorage.setItem("token", data.token);
         navigate("/");
       })

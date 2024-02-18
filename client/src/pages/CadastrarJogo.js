@@ -51,7 +51,9 @@ export default function CadastrarJogo() {
         <StyledTextarea
           required
           placeholder="Descrição"
-          onChange={(e) => setNewGame({ ...newGame, description: e.target.value })}
+          onChange={(e) =>
+            setNewGame({ ...newGame, description: e.target.value })
+          }
         />
         <StyledInput
           required
@@ -61,20 +63,29 @@ export default function CadastrarJogo() {
         />
 
         <label>Mostra no carrossel?</label>
-        <StyledSelect required onChange={(e) => setNewGame({ ...newGame, carousel: e.target.value })}>
+        <StyledSelect
+          required
+          onChange={(e) => setNewGame({ ...newGame, carousel: e.target.value })}
+        >
           <option></option>
           <option value={true}>Sim</option>
           <option value={false}>Não</option>
         </StyledSelect>
         <label>Mostrar nos melhores</label>
-        <StyledSelect required onChange={(e) => setNewGame({ ...newGame, best: e.target.value })}>
+        <StyledSelect
+          required
+          onChange={(e) => setNewGame({ ...newGame, best: e.target.value })}
+        >
           <option></option>
           <option value={true}>Sim</option>
           <option value={false}>Não</option>
         </StyledSelect>
 
         <label>Lançamento?</label>
-        <StyledSelect required onChange={(e) => setNewGame({ ...newGame, release: e.target.value })}>
+        <StyledSelect
+          required
+          onChange={(e) => setNewGame({ ...newGame, release: e.target.value })}
+        >
           <option></option>
           <option value={true}>Sim</option>
           <option value={false}>Não</option>

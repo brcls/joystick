@@ -1,8 +1,6 @@
-global.SALT_KEY = "canalhas";
+global.SALT_KEY = "";
 
 module.exports = {
   connectionString:
-    "mongodb+srv://brcls:rzungN5oDWjncVzh@cluster0.8spc0.mongodb.net/?retryWrites=true",
-  sendgridKey: "SUA CHAVE",
-  containerConnectionString: "SUA CONNECTION STRING",
+    "mongodb+srv://brcls0502:12345@joystickdb.rg3llua.mongodb.net/?retryWrites=true&w=majority",
 };

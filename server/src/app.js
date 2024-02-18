@@ -8,6 +8,7 @@ const config = require("./config");
 const app = express();
 const router = express.Router();
 
+mongoose.set("strictQuery", false);
 // Connecta ao banco
 mongoose.connect(config.connectionString);
 
